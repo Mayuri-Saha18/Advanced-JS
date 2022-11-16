@@ -1,0 +1,51 @@
+#navbar {
+    display: flex;
+    border: 1px solid red;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#navbar > div {
+    display: flex;
+    gap: 20px;
+}
+
+.links {
+    cursor: pointer;
+}
+
+#navbar > input {
+    width: 20%;
+    height: 30px;
+}
+
+#container {
+    display: flex;
+}
+
+#sidebar {
+    border: 1px solid red;
+    padding: 20px;
+    flex : 2;
+    text-align: center;
+}
+
+#sidebar > img {
+    width: 100%;
+    height: 200px;
+}
+
+#news_container {
+    flex: 8;
+}
+
+#show_news {
+    flex: 7;
+
+    padding: 30px;
+}
+
+#show_news img {
+    width: 70%;
+    margin: 0 15%;
+}

@@ -1,0 +1,27 @@
+#navbar {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 30px;
+    font-size: x-large;
+}
+#coffee_count {
+    color: red;
+}
+#menu {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    padding: 0 50px;
+}
+
+.coffee {
+    text-align: center;
+    border: 1px solid brown;
+    padding: 10px;
+}
+
+.coffee > img{
+   width: 100%;
+   height: 350px;
+}
