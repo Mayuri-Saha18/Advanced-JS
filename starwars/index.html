@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+        }
+        body{
+            background: url("stars.jpg") no-repeat center;
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+        }
+        #container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            max-width: 550px;
+            width: 100%;
+            padding: 15px;
+            border-radius: 5px;
+            margin: auto;
+
+        }
+        #container .input{
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            background-color: rgb(75, 73, 73);
+            color:white;
+            margin: auto;
+            border-radius: 20px;
+
+        }
+        input::placeholder{
+            color: rgb(194, 188, 188);
+        }
+        #container>img{
+            display: block;
+            margin: auto;
+        
+        }
+        #results{
+            width: 520px;
+            margin-top: 10px;
+            background-color: rgb(75, 73, 73);
+            color: white;
+            overflow: auto;
+            max-height: 200px;
+    overflow-y: auto;
+    border-radius: 20px;
+    margin-bottom: 10px;
+        }
+        ::-webkit-scrollbar{
+            width: 0px;
+        }
+       #main{
+        display: flex;
+        background-color: rgb(75, 73, 73);
+        border-radius: 20px;
+       }
+       #search{
+        width: 50px;
+        background-color: rgb(255, 235, 0);
+        float:right;
+        margin-right: 10px;
+    padding: 10px;
+    border-radius: 100%;
+       }
+       .char{
+        padding: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+       
+        
+       }
+       .box{
+        width: 70%;
+       
+       }
+       .box1{
+        width: 20%;
+       }
+       .name:hover{
+        color:  rgb(255, 235, 0);
+       }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg8Hmrqco9q0EkaAhTM7q264uK4NKt3UApsA&usqp=CAU" alt="error">
+        <div id="main">
+            <input class="input" type="text" placeholder="Search Characters" id="query" oninput="debounce(main,2000)">
+        <img src="https://w7.pngwing.com/pngs/608/913/png-transparent-computer-icons-google-search-symbol-mobile-search-search-for-miscellaneous-logo-mobile-phones-thumbnail.png" alt="" id="search">
+        </div>
+        
+        <div id="results"></div>
+    </div>
+</body>
+</html>
+<script>
+
+    let id;
+ async function getData(){
+    let query=document.getElementById("query").value;
+    let url=`https://swapi.dev/api/people/?search=${query}`;
+    let res=await fetch(url)
+    let data=await res.json();
+    console.log(data);
+    console.log(data.results) 
+    //   append(data.results);
+    return data.results
+}
+function append(data) {
+    let results=document.getElementById("results")
+    results.innerHTML=null;
+
+    data.forEach(function(elem){
+       
+        let p=document.createElement("p")
+        p.setAttribute("class","name")
+        p.innerHTML=elem.name;
+        let year=document.createElement("p")
+        year.setAttribute("class","year")
+        year.innerHTML=elem.birth_year;
+        let gender=document.createElement("p")
+        gender.setAttribute("class","gender")
+        gender.innerHTML=elem.gender;
+        let box=document.createElement("div")
+            box.setAttribute("class","box");
+            box.append(p,year)
+        let box1=document.createElement("div")
+            box1.setAttribute("class","box1");
+            box1.append(gender)
+
+            let div=document.createElement("div")
+            div.setAttribute("class","char");
+            div.append(box,box1);
+
+        results.append(div);
+
+        div.addEventListener("click",function(){
+                window.load.href="cast.html"
+            })
+
+    });
+}
+
+async function main(){
+    let data= await getData();
+
+    append(data);
+}
+function debounce(func,delay){
+    if(id){
+        clearTimeout(id);
+    }
+    id=setTimeout(function(){
+        func();
+    },delay);
+}
+</script>
