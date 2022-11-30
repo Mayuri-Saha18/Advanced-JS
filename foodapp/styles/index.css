@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(223, 80, 80);
+}
+
+#logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#logo>img{
+    width: 20%;
+    border-radius: 50%;
+}
+#logo>h3{
+    margin-left: 10px;
+    font-size: 30px;
+    color:rgb(170, 183, 69);
+    font-family: 'Covered By Your Grace', cursive;
+}
+#logo>p{
+    margin-left: 10px;
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(133, 27, 27);
+    font-family: 'Creepster', cursive;
+}
+#searchBox{
+    width: 30%;
+    height: 40px;
+    padding: 8px;
+    border-radius: 8px;
+    outline: 0;
+    border: 1px solid rgb(175, 171, 171);
+}
+#navbar>a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+#menu{
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+}
+#show{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 90%;
+    gap: 20px;
+    margin: auto;
+    margin-top: 10px;
+    font-family: 'Creepster', cursive;
+    
+}
+#show>div{
+    margin: auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+#show>div>img{
+    width: 80%;
+}
