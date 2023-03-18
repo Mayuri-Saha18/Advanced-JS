@@ -1,0 +1,105 @@
+#topSection {
+    max-width: 1280px;
+    margin: auto;
+    text-align: center;
+  }
+  #searchBox {
+    margin: auto;
+    max-width: 500px;
+    height: 60px;
+    margin-top: 20px;
+  }
+  #searchBox form {
+    display: flex;
+    align-items: center;
+    padding: 9px 9px 9px 24px;
+    background: #fff;
+    border: 1px solid #eaf1f5;
+    box-sizing: border-box;
+    box-shadow: 0 4px 12px rgb(86 141 187 / 12%);
+    border-radius: 100px;
+    height: 100%;
+  }
+  .fa-magnifying-glass {
+    color: #8292b4;
+  }
+  #search {
+    flex: 1;
+    height: 100%;
+    font-size: 18px;
+    margin-left: 10px;
+    outline: none;
+    border: none;
+    letter-spacing: 1px;
+  }
+  /* #search {
+      flex: 1;
+      height: 100%;
+    } */
+  #searchBox button {
+    border: none;
+    padding: 11px 28px;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 26px;
+    background: #457eff;
+    box-shadow: 0 5.07692px 12.6923px rgb(69 126 255 / 10%);
+    border-radius: 100px;
+    color: #fff;
+    cursor: pointer;
+  }
+  #searchBox button:hover,
+  #searchBox button:active {
+    background: blue;
+  }
+  
+  #filterContainer {
+    margin: auto;
+    max-width: 1040px;
+    /* border: 1px solid red; */
+    height: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .filterBox {
+    font-size: 16px;
+  }
+  
+  table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 60%;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  table td,
+  table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #8caacf;
+  }
+  
+  table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #23a0f3;
+    color: white;
+    text-align: center;
+  }
+  img {
+    height: 40px;
+  }
+  
+  #paginationDiv {
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+  }
+  

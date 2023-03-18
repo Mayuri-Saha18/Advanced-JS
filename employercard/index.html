@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f4bc.svg"
+    />
+    <link rel="stylesheet" href="./employee.css" />
+    <link rel="stylesheet" href="./navbar.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/b0071033d8.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Masai Employee Management System</title>
+    <body>
+        <header id="header">
+          <nav id="navbar">
+            <div class="logo">
+              <a href="./index.html">
+                <img
+                  src="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f5a5-fe0f.svg"
+                  alt="logo"
+                  height="50px"
+                />
+              </a>
+            </div>
+            <div class="routes">
+              <a href="./index.html"><div>Home</div></a>
+            </div>
+          </nav>
+        </header>
+    
+        <div id="topSection">
+        
+    
+          <div id="searchBox">
+            <form onsubmit="handleOnSubmit(event)" id="form">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                id="search"
+                type="text"
+                placeholder="Search By name... "
+                required
+              />
+              <button type="submit">Search</button>
+            </form>
+          </div>
+          <div class="sortBox">
+            <label>Sort by price: </label>
+            <select id="sortPrice" onchange="handleByPrice()">
+              <option value="">Select</option>
+              <option value="htl">High to low</option>
+              <option value="lth">Low to high</option>
+            </select>
+          </div>
+          <div class="filterBox">
+              <label for="">Filter By Department: </label>
+              <select id="filter" onchange="handleFilter()">
+                 <option value="">Filter By Department</option>
+                 <option value="engineering">engineering</option>
+                 <option value="finance">finance</option>
+                 <option value="operations">operations</option>
+              </select>
+          </div>
+        </div>
+       
+        </div>
+    
+        <div id="employesContainer">
+          <table>
+            <thead>
+              <tr>
+                <th>Sr No.</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Gender</th>
+                <th>Salary</th>
+              </tr>
+            </thead>
+            <tbody id="employeeDiv"></tbody>
+          </table>
+        </div>
+        <div id="paginationDiv">
+          <div>
+            <label>Select page number: </label>
+            <select name="filter" id="filter" onchange="handleOnChangePage(event)">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+            </select>
+          </div>
+        </div>
+      </body>
+    </html>
+    <script src="./index.js"></script>

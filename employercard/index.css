@@ -1,0 +1,103 @@
+:root {
+    --bg-color: #eef9fa;
+    --bg-color-white: #fff;
+    --new-colors-red-50: #fff5f5;
+    --new-colors-red-100: #fbd2d2;
+    --new-colors-red-500: #e53e3e;
+    --box-shadow-plain: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    --box-shadow-v2: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+      rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    --box-shadow-v3: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  }
+  
+  #profileContainer {
+    margin: auto;
+    width: 600px;
+    margin-top: 30px;
+    box-shadow: var(--box-shadow-v3);
+    background-color: var(--bg-color-white);
+    border-radius: 10px;
+    padding: 30px 30px 50px 30px;
+  }
+  .header h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  #form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .formName {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .formGroup {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .formGroup > div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+  }
+  .formDescription {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+  }
+  #form input[type="text"],
+  input[type="password"] {
+    height: 35px;
+    border: 0.8px solid rgb(191, 191, 191);
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 16px;
+  }
+  #form textarea {
+    border: 0.8px solid rgb(191, 191, 191);
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 16px;
+  }
+  
+  .formRegisterBtn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .formRegisterBtn input {
+    margin: auto;
+    width: 60%;
+    border: 0.8px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 26px;
+    background: #457eff;
+    color: #fff;
+    padding: 10px 0;
+  }
+  .formRegisterBtn input:hover {
+    background: blue;
+  }
+  .formFooter {
+    text-align: center;
+    color: gray;
+  }
+  .formFooter a {
+    color: #457eff;
+  }
+  #profileContainer {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+  }
