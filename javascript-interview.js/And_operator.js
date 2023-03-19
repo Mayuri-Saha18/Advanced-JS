@@ -29,3 +29,5 @@ let accountactive = false;
 
 // Since accountactive is false, the condition (bankbalance > 0) && (accountactive) will evaluate to false, so the code inside the console.log statement will not be executed.
 // Therefore, running this code will not produce any output.
+
+// The precedence of AND && is higher than ||, so it executes first.
