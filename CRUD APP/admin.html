@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+      #productadd {
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      #add {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        width: 20%;
+        text-align: center;
+      }
+
+      #delete {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        width: 20%;
+        text-align: center;
+      }
+
+      #put {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        width: 20%;
+        text-align: center;
+      }
+
+      #patch {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        width: 20%;
+        text-align: center;
+      }
+
+      button {
+        padding: 5px 10px;
+        margin-top: 10px;
+        background-color: rgb(116, 207, 230);
+        border: 0px;
+        border-radius: 10px;
+      }
+
+      #container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, auto);
+        gap: 20px;
+        justify-content: space-evenly;
+        margin-top: 50px;
+      }
+
+      #container > div {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        text-align: center;
+        padding: 0px 10px 0px 10px;
+      }
+
+      #container > div > img {
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="productadd">
+      <div id="add">
+        <h2>Add products</h2>
+        <label>Image</label><br />
+
+        <input type="text" id="image" /><br />
+        <label>Title</label><br />
+        <input type="text" id="title" /><br />
+        <label>Id</label><br />
+        <input type="number" id="id" /><br />
+        <label>Description</label><br />
+        <input type="text" id="description" /><br />
+        <label>Price</label><br />
+        <input type="number" id="price" /><br />
+        <label>Rating</label><br />
+        <input type="text" id="rating" /><br />
+        <button onclick="addProduct()">Add</button>
+      </div>
+      <br />
+      <div id="delete">
+        <h2>Delete Product</h2>
+        <input type="number" id="delete_id" /><br />
+        <button onclick="deletefun()">Delete</button>
+      </div>
+      <br />
+      <div id="put">
+        <h2>Put Product</h2>
+        <label>Image</label><br />
+
+        <input type="text" id="put_image" /><br />
+        <label>Title</label><br />
+        <input type="text" id="put_title" /><br />
+        <label>Id</label><br />
+        <input type="number" id="put_id" /><br />
+        <label>Description</label><br />
+        <input type="text" id="put_description" /><br />
+        <label>Price</label><br />
+        <input type="number" id="put_price" /><br />
+        <label>Rating</label><br />
+        <input type="text" id="put_rating" /><br />
+        <button onclick="putfun()">Put</button>
+      </div>
+      <br />
+      <div id="patch">
+        <h2>Patch Product</h2>
+        <label>Image</label><br />
+
+        <input type="text" id="patch_image" /><br />
+        <label>Title</label><br />
+        <input type="text" id="patch_title" /><br />
+        <label>Id</label><br />
+        <input type="number" id="patch_id" /><br />
+        <label>Description</label><br />
+        <input type="text" id="patch_description" /><br />
+        <label>Price</label><br />
+        <input type="number" id="patch_price" /><br />
+        <label>Rating</label><br />
+        <input type="text" id="patch_rating" /><br />
+        <button onclick="patchfun()">Patch</button>
+      </div>
+    </div>
+    <div id="container"></div>
+  </body>
+</html>
+<script>
+  async function addProduct() {
+    let product = {
+      image: document.getElementById("image").value,
+      title: document.getElementById("title").value,
+      id: document.getElementById("id").value,
+      description: document.getElementById("description").value,
+      price: document.getElementById("price").value,
+      rating: document.getElementById("rating").value,
+    };
+
+    product = JSON.stringify(product);
+
+    let response = await fetch(`https://data-server-seven.vercel.app/items`, {
+      method: "POST",
+      body: product,
+
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    console.log(response);
+  }
+
+  async function deletefun() {
+    let id = document.getElementById("delete_id").value;
+
+    let response = await fetch(`https://data-server-seven.vercel.app/items/${id}`, {
+      method: "DELETE",
+    });
+
+    let data = await response.json();
+    console.log(data);
+  }
+
+  async function putfun() {
+    let put = {
+      image: document.getElementById("put_image").value,
+      title: document.getElementById("put_title").value,
+
+      description: document.getElementById("put_description").value,
+      price: document.getElementById("put_price").value,
+      rating: document.getElementById("put_rating").value,
+    };
+
+    put = JSON.stringify(put);
+    let id = document.getElementById("put_id").value;
+    let response = await fetch(`https://data-server-seven.vercel.app/items/${id}`, {
+      method: "PUT",
+      body: put,
+
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    // let data = await response.json();
+    console.log(response);
+  }
+
+  async function patchfun() {
+    let patch = {
+      image: document.getElementById("patch_image").value,
+      title: document.getElementById("patch_title").value,
+
+      description: document.getElementById("patch_description").value,
+      price: document.getElementById("patch_price").value,
+      rating: document.getElementById("patch_rating").value,
+    };
+    let id = document.getElementById("patch_id").value;
+
+    patch = JSON.stringify(patch);
+
+    let response = await fetch(`https://data-server-seven.vercel.app/items/${id}`, {
+      method: "PATCH",
+      body: patch,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    let data = await response.json();
+    console.log(data);
+  }
+  let url = `https://data-server-seven.vercel.app/items`;
+
+  async function myitems(url) {
+    try {
+      let res = await fetch(url);
+      let data = await res.json();
+      append(data);
+      console.log(data);
+    } catch (err) {}
+  }
+  myitems(url);
+
+  function append(data) {
+    data.forEach((el) => {
+      let div = document.createElement("div");
+
+      let img = document.createElement("img");
+      img.src = el.image;
+
+      let h2 = document.createElement("h2");
+      h2.innerText = `Title:-${el.title}`;
+
+      let description = document.createElement("p");
+      description.innerText = `Details:- ${el.description}`;
+
+      let price = document.createElement("p");
+      price.innerText = `Price:- ${el.price}`;
+
+      let rating = document.createElement("p");
+      rating.innerText = `Rating:-${el.rating}`;
+
+      let btn = document.createElement("button");
+      btn.innerText = "Add To Cart";
+
+      div.append(img, h2, description, price, rating, btn);
+      document.querySelector("#container").append(div);
+    });
+  }
+</script>
+
+<!-- function updateBook() {
+    const bookId = 1; // Replace with the ID of the book you want to update
+    const url = `http://localhost:3000/books/${bookId}`;
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+
+    fetch(url, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            title: title,
+            author: author
+        })
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+} -->
+
+<!-- function updateUser() {
+    const id = document.getElementById("id").value;
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+
+    const user = {
+      name: name,
+      email: email
+    };
+
+    fetch(`http://localhost:3000/users/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(user)
+    })
+    .then(response => {
+      console.log(response);
+      alert("User updated successfully!");
+    })
+    .catch(error => {
+      console.error(error);
+      alert("There was an error updating the user.");
+    });
+  } -->
