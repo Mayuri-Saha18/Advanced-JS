@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>google_search_Bar</title>
+  </head>
+  <style>
+    body{
+        text-align: center;
+        margin-top: 5%;
+    }
+    #searchInput {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+  width: 300px;
+  box-shadow: none;
+}
+
+#searchButton {
+  background-color: #4285F4;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+#searchButton:hover {
+  background-color: #3367D6;
+}
+
+</style>
+  <body>
+    <input type="text" id="searchInput" placeholder="Search..." />
+    <button id="searchButton">Search</button>
+  </body>
+</html>
+
+<script>
+  const searchInput = document.getElementById("searchInput");
+  const searchButton = document.getElementById("searchButton");
+
+  searchButton.addEventListener("click", function () {
+    const query = searchInput.value;
+    // replace the URL with your own search endpoint
+    const searchUrl =
+      "https://www.google.com/search?q=" + encodeURIComponent(query);
+    window.location.href = searchUrl;
+  });
+
+  searchInput.addEventListener("keydown", function (event) {
+    if (event.keyCode === 13) {
+      // enter key
+      const query = searchInput.value;
+      // replace the URL with your own search endpoint
+      const searchUrl =
+        "https://www.google.com/search?q=" + encodeURIComponent(query);
+      window.location.href = searchUrl;
+    }
+  });
+</script>

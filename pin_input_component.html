@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pin_input_component</title>
+</head>
+<style>
+    .pin-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pin-input input {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  text-align: center;
+  font-size: 24px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.pin-input input:focus {
+  border-color: #4285F4;
+}
+
+</style>
+<body>
+    <div class="pin-input">
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+        <input type="text" maxlength="1" />
+      </div>
+      
+</body>
+</html>
+<script>
+    const pinInputs = document.querySelectorAll(".pin-input input");
+
+pinInputs[0].focus();
+
+pinInputs.forEach((input, index) => {
+  input.addEventListener("keyup", (event) => {
+    const inputValue = event.target.value;
+
+    if (inputValue) {
+      // move focus to the next input
+      if (index < pinInputs.length - 1) {
+        pinInputs[index + 1].focus();
+      }
+    } else {
+      // move focus to the previous input
+      if (index > 0) {
+        pinInputs[index - 1].focus();
+      }
+    }
+  });
+});
+
+</script>
