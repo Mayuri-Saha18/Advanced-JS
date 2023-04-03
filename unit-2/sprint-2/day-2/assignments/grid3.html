@@ -1,0 +1,69 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat(4,150px);
+            grid-template-rows: repeat(3,80px);
+            gap: 20px;
+            grid-template-areas: 
+            "a b b c"
+            "d d e f"
+            "g h i i";
+        }
+        #container>div{
+            background-color: teal;
+            color: white;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+        #container>div:nth-child(1){
+            grid-area: a;
+        }
+        #container>div:nth-child(2){
+            grid-area: b;
+        }
+        #container>div:nth-child(3){
+            grid-area: c;
+        }
+        #container>div:nth-child(4){
+            grid-area: d;
+        }
+        
+        #container>div:nth-child(5){
+            grid-area: e;
+        }
+        #container>div:nth-child(5){
+            grid-area: f;
+        }
+         #container>div:nth-child(5){
+            grid-area: g;
+        }
+        #container>div:nth-child(5){
+            grid-area: h;
+        }
+        #container>div:nth-child(5){
+            grid-area: i;
+        }
+        
+
+    </style>
+</head>
+<body data-new-gr-c-s-check-loaded="14.1065.0" data-gr-ext-installed="">
+    <div id="container">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

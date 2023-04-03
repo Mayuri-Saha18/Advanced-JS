@@ -1,0 +1,72 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body data-new-gr-c-s-check-loaded="14.1065.0" data-gr-ext-installed="">
+    <select id="continent">
+        <option value="India">India</option>
+        <option value="United States of America">United States of America</option>
+        <option value="China">China</option>
+        <option value="Nepal">Nepal</option>
+        <option value="Australia">Australia</option>
+        <option value="France">France</option>
+        <option value="Germany">Germany</option>
+        <option value="South Africa">South Africa</option>
+        <option value="Nigeria">Nigeria</option>
+        <option value="Mexico">Mexico</option>
+        <option value="Argentina">Argentina</option>
+        <option value="Brazil">Brazil</option>
+        <option value="Canada">Canada</option>
+        <option value="Singapore">Singapore</option>
+        <option value="Sweden">Sweden</option>
+    </select>
+    <button id="submit"> Find Continent</button>
+
+
+<script>
+    let countries=document.querySelector("#continent");
+    let button=document.querySelector("#submit")
+     function shwContinent(){
+            var continent="Asia";
+            switch (countries.value) {
+                case "India": continent="Asia";
+                break;
+                case "United States of America": continent="North and Central America";
+                break;
+                case "China": continent="Asia";
+                break;
+                case "Nepal": continent="Asia";
+                break;
+                case "Australia": continent="Oceania";
+                break;
+                case "France": continent="Europe";
+                break;
+                case "Germany": continent="Europe";
+                break;
+                case "South Africa": continent="Africa";
+                break;
+                case "Nigeria": continent="Africa";
+                break;
+                case "Mexico": continent="North and Central America";
+                break;
+                case "Argentina": continent="South America";
+                break;
+                case "Brazil": continent="South America";
+                break;
+                case "Canada": continent="North and Central America";
+                break;
+                case "Singapore": continent="Asia";
+                break;
+                case "Sweden": continent="Europe";
+                break;
+                default: continent="Asia";
+                break;
+            }
+            // console.log(continent);
+            alert("The Continent is:"+continent);
+            
+        }
+        button.addEventListener("click",shwContinent);
+</script></body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #navbar{
+            width: 100%;
+            height: 70px;
+            margin-top: 10px;
+            display: flex;
+            justify-content:space-around;
+        }
+        #navbar>div:first-child{
+            width: 10%;
+            height: 100%;
+        }
+        #navbar>div:last-child{
+            width: 70%;
+            height: 100%;
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+        #navbar>div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+        }
+        p+div{
+            display: flex;
+            background-color: rgb(227, 250, 250);
+            justify-content: center;
+            align-items: center;
+            padding: 0px 20px;
+        }
+        p+div>img{
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+        }
+        button{
+            color: red;
+            border: 1px solid red;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: white;
+        }
+        h1{
+            text-align: center;
+            margin: auto;
+            width: 25%;
+            margin-top: 50px;
+        }
+        #container{
+            width: 60%;
+            display: flex;
+            margin: auto;
+            margin-top: 30px;
+            justify-content: space-evenly;
+            background-color: #f6ebe6;
+            padding: 50px 40px;
+            border-radius: 15px;
+        }
+        #container>div{
+            width: 12%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            text-align: center;
+            border-radius: 15px;
+        }
+        #container>div>p:first-child{
+            font-size: 20px;
+            padding: 10px 15px;
+            border-radius: 15px;
+            background-color: #f6ebe6;
+        }
+        #container>div>p:last-child{
+            margin-top: -10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <div>
+            <img src="https://www.masaischool.com/img/navbar/logo.svg" alt="error">
+        </div>
+        <div>
+        <select>
+            <option value="">COURSES</option>
+        </select>
+            <p>fees & isa</p>
+            <p>about us</p>
+            <p>hire from us</p>
+            <p>faq</p>
+            <p>events</p>
+            <div>
+                <p>refer & earn</p>
+                <img src="https://www.masaischool.com/img/referral/hand.png" alt="error">
+            </div>
+            <button>Login</button>
+        </div>
+    </div>
+    <h1>Ready to realize your carrer potential</h1>
+    <div id="container">
+        <div>
+            <p>1</p>
+            <p>Apply For The Program</p>
+        </div>
+        <div>
+            <p>2</p>
+            <p>Crack The Admission Test</p>
+        </div>
+        <div>
+            <p>3</p>
+            <p>Learn at 0 Upfront Fee</p>
+        </div>
+        <div>
+            <p>4</p>
+            <p>Get Placed</p>
+        </div>
+        <div>
+            <p>5</p>
+            <p>Pay When You Earn 5 LPA CTC </p>
+        </div>
+    </div>
+</body>
+</html>

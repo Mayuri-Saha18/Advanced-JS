@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding:0px;
+        }
+        #container{
+            width: 100%;
+            height: 600px;
+            background-color:#f2f6ff ;
+        }
+        #container>h1{
+            width: 30%;
+            height: 60px;
+            text-align: center;
+            margin: auto;
+            padding: 20px 0px;
+        }
+        #second_box{
+            width: 85%;
+            height: 400px;
+            margin: auto;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        #second_box>div{
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 20px;
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        #second_box>div>img{
+            width: 100%;
+            border-radius: 20px 20px 0px 0px;
+        }
+        #second_box>div>h3{
+            padding: 10px 30px;
+            color: blue;
+        }
+        h3+p{
+            padding: 0px 30px;
+            font-size: 25px;
+            font-weight: bold ;
+        }
+        p+p{
+            padding: 0px 30px;
+            margin-bottom: 20px;
+        }
+        h1{
+            text-align: center;
+            margin-top: 50px;
+        }
+        #footer{
+            width: 100%;
+            height: 200px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        #footer>div{
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 15px;
+        }
+        #footer>div>img{
+            width: 100%;
+        } 
+        button{
+            margin: auto;
+            margin-top: 30px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        
+            <h1>Masai In The News</h1>
+        
+    
+        <div id="second_box">
+            <div>
+                <img src="https://masai-website-images.s3.ap-south-1.amazonaws.com/ET_3754cc10ec.png" alt="error">
+                <h3>21 Dec 2021</h3>
+                <p>Edtech startup Masai School aquires firm prepleaf for $1 million.</p>
+                <p>with their latest acquisition,Masai moves one step closer to becoming...</p>
+            </div>
+            <div>
+                <img src="https://masai-website-images.s3.ap-south-1.amazonaws.com/money_Control_c3e25f5ceb.png" alt="error">
+                <h3>21 Dec 2021</h3>
+                <p>Edtech startup Masai School aquires firm prepleaf for $1 million.</p>
+                <p>with their latest acquisition,Masai moves one step closer to becoming...</p>
+            </div>
+            <div>
+                <img src="https://masai-website-images.s3.ap-south-1.amazonaws.com/vccircle_6ef779c958.png" alt="error">
+                <h3>21 Dec 2021</h3>
+                <p>Edtech startup Masai School aquires firm prepleaf for $1 million.</p>
+                <p>with their latest acquisition,Masai moves one step closer to becoming...</p>
+            </div>
+        </div>
+        <button>See More ></button>
+    </div>
+    <h1>Our Investors, Who believe In Us</h1>
+    <div id="footer">
+        <div>
+            <img src="https://www.masaischool.com/img/our-investors/unitus.svg" alt="error">
+        </div>
+        <div>
+            <img src="https://www.masaischool.com/img/our-investors/omidyar.svg" alt="error">
+        </div>
+        <div>
+            <img src="https://www.masaischool.com/img/our-investors/indiaQuotient.svg" alt="error">
+        </div>
+    </div>
+</body>
+</html>

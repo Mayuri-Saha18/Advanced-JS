@@ -1,0 +1,40 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body data-new-gr-c-s-check-loaded="14.1065.0" data-gr-ext-installed="">
+    <h1>Check your BMI</h1>
+    <p>Enter your weight and height below to check your BMI result</p>
+    <p>Put your weight in here (KG)</p>
+    <input type="number" name="weight" id="weight">
+    <p>And your height in here (CM)</p>
+    <input type="number" name="height" id="height">
+    <button>Calculate BMI</button>
+    <p id="result"></p>
+
+    
+
+
+<script>
+    document.querySelector("button").addEventListener("click",myCalculator)
+    function myCalculator(){
+        let weight= document.getElementById("weight").value;
+        let height= document.getElementById("height").value;
+        let bmi = ((weight) / (height * height))*10000;
+        
+        console.log(bmi);
+        if (bmi<=18.4)
+        {
+            document.getElementById("result").innerHTML="your BMI is" + bmi + "you are under weight";
+        }else if(bmi >= 18.5 && bmi <= 24.9){
+            document.getElementById("result").innerHTML="your BMI is" + bmi + "you are normal weight";
+        }else if(bmi >= 25 && bmi <= 29.9){
+            document.getElementById("result").innerHTML="your BMI is" + bmi + "you are overweight";
+        }else{
+            document.getElementById("result").innerHTML="your BMI is" + bmi + "you are obese";
+        }
+
+    }
+</script></body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

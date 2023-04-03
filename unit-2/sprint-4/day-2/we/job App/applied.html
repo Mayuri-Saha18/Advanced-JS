@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Database</title>
+    <link rel="stylesheet" href="commonStyles.css" />
+    <style>
+      tbody>tr>td:last-child{
+        background-color: chartreuse;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="links">
+      <div><a href="index.html">Home</a></div>
+      <div><a href="applied.html">Applied Jobs</a></div>
+      <div><a href="bookmark.html">Bookmarks</a></div>
+    </div>
+
+    <select id="sort" onchange="nameSort()">
+      <option value="">sort by name</option>
+      <option value="Ascending">Ascending</option>
+      <option value="Descending">Descending</option>
+    </select>
+
+    <select id="sorted" onchange="salarySort()">
+      <option value="">sort by salary</option>
+      <option value="high">High to low</option>
+      <option value="low">Low to high</option>
+    </select>
+
+    <select id="filter" onchange="roleFilter()">
+      <option value="">Filter by role</option>
+      <option value="Backend">Backend</option>
+      <option value="Frontend">Frontend</option>
+      <option value="FSD">FSD</option>
+    </select>
+
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Job applied</th>
+            <th>Salary expected</th>
+            <th>Add to bookmark</th>o
+          </tr>
+        </thead>
+        <tbody id="body">
+          <!-- Append your output to tbody -->
+        </tbody>
+      </table>
+    </main>
+  </body>
+  <script>
+    //you need to code here
+    let arrFmls=JSON.parse(localStorage.getItem("jobData"))
+    console.log(arrFmls)
+
+    let bookMarkAr=JSON.parse(localStorage.getItem("bookMarkdata")) || [];
+    // console.log(arrFmls)
+    // display(arrFmls);
+
+    window.addEventListener("load", function () {
+      display(arrFmls);
+    });
+
+    function roleFilter(){
+      let selec=document.querySelector("#filter").value;
+       console.log(selec)
+      let filtered = arrFmls.filter(function (elem){
+        return elem.role == selec;
+      });
+      // console.log(selec);
+      display(selec);
+
+    }
+    function nameSort(){
+      // console.log("changed Sort")
+      let selected=document.querySelector("#sort").value;
+      // console.log(selected)
+      if(selected == "Ascending"){
+        arrFmls.sort(function(a,b){
+          if(a.name>b.name) return 1;
+          if(a.name<b.name) return -1;
+          return 0;
+        })
+        // console.log(arrFmls)
+        display(arrFmls)
+      }
+      if(selected=="Descending"){
+        arrFmls.sort(function(a,b){
+          if(a.name>b.name) return -1;
+          if(a.name<b.name) return 1;
+          return 0;
+        })
+        // console.log(arrFmls)
+        display(arrFmls)
+      }
+    }
+    function salarySort(){
+      let select=document.querySelector("#sorted").value;
+      // console.log(select)
+      if(select == "high"){
+        arrFmls.sort(function(a,b){
+          return b.salary-a.salary
+        })
+        // console.log(arrFmls)
+        display(arrFmls)
+      }
+      if(select=="low"){
+        arrFmls.sort(function(a,b){
+          return a.salary-b.salary
+        })
+        // console.log(arrFmls)
+        display(arrFmls)
+      }
+    }
+    // let arrFmls=JSON.parse(localStorage.getItem("jobData"))
+    // let bookMarkAr=JSON.parse(localStorage.getItem("bookMarkdata")) || [];
+    // // console.log(arrFmls)
+    // display(arrFmls);
+
+    function display(arrFmls){
+       document.querySelector("tbody").innerHTML="";
+        arrFmls.map(function(elem){
+      // console.log(elem)
+      let tr=document.createElement("tr");
+      let td1=document.createElement("td");
+      td1.innerText=elem.name;
+      let td2=document.createElement("td");
+      td2.innerText=elem.email;
+      let td3=document.createElement("td");
+      td3.innerText=elem.role;
+      let td4=document.createElement("td");
+      td4.innerText=elem.salary;
+      let td5=document.createElement("td");
+      td5.innerText="Bookmark";
+      td5.addEventListener("click",function(){
+        bookMark(elem);
+
+      })
+
+      tr.append(td1,td2,td3,td4,td5);
+      document.querySelector("tbody").append(tr);
+    })
+  }
+  function bookMark(elem){
+console.log(elem);
+bookMarkAr.push(elem)
+console.log(bookMarkAr)
+localStorage.setItem("bookMarkdata",JSON.stringify(bookMarkAr))
+  }
+  </script>
+</html>

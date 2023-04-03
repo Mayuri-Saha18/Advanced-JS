@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <style>
+        
+        #container{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        #container>div>img{
+            width: 100%;
+        }
+        /* #navbar
+        {
+            width: 80%;
+            background-color: #5da1ee;
+            margin: auto;
+            color: white;
+            border-radius: 20px;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        #navbar>p
+        {
+            /* border: 2px solid yellow; */
+            /* width: 40%;
+            display:flex;
+            justify-content: space-around;
+            text-decoration: none; */
+            /* font-size: 20px; */
+        /* } */ 
+    </style>
+</head>
+<body>
+    <div id="navbar">
+            <h4>total price:<p></p></h4>
+    <div>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+    let productCont=document.getElementById("container")
+
+
+let cartLs=JSON.parse(localStorage.getItem("cart-page")) || [];
+let total=0
+function displayProducts(womensData){
+    productCont.innerHTML="";
+    total=0;
+    womensData.forEach(function(elem){
+        total+=elem.price;
+
+let box=document.createElement("div");
+
+let avtar=document.createElement("img");
+avtar.setAttribute("src",elem.image_url);
+
+let name=document.createElement("h5");
+name.innerText=elem.name;
+
+let mid=document.createElement("p");
+mid.innerText=elem.price;
+
+let last=document.createElement("p");
+last.innerText=elem.strikedoffprice;
+
+    let DeleteCart=document.createElement("button");
+    DeleteCart.innerText="Delete";
+    DeleteCart.addEventListener("click",function(){
+        Delete(elem.name)
+    })
+
+
+box.append(avtar,name,mid,last,DeleteCart)
+    productCont.append(box)
+})
+console.log(total)
+document.querySelector("p").innerText=total;
+}
+displayProducts(cartLs);
+
+function Delete(id){
+    console.log(id);
+let deleted=cartLs.filter(function(el){
+    return el.name != id;
+})
+// console.log(deleted)
+cartLs=deleted;
+localStorage.setItem("cart-page",JSON.stringify(cartLs));
+displayProducts(cartLs)
+}
+</script>

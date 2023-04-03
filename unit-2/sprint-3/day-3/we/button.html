@@ -1,0 +1,37 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            margin-right: 10px ;
+        }
+    </style>
+</head>
+<body data-new-gr-c-s-check-loaded="14.1065.0" data-gr-ext-installed="">
+    
+
+
+<script>
+    let btnArr=[
+        {name: "Primary", color: "white", bgColor: "blue"},
+        {name: "Secondary", color: "white", bgColor: "grey"},
+        {name: "Danger", color: "white", bgColor: "red"},
+        {name: "Warning", color: "black", bgColor: "yellow"},
+        {name: "Info", color: "white", bgColor: "teal"},
+        {name: "Light", color: "black", bgColor: "white"},
+        {name: "Success", color: "white", bgColor: "green"},
+        {name: "Dark", color: "white", bgColor: "black"},
+        {name: "Link", color: "blue", bgColor: "white"},
+        {name: "Dark Pink", color: "blue", bgColor: "pink"},
+    ];
+    btnArr.forEach(function (elem,index,arr) {
+        console.log(elem.name, elem.color, elem.bgColor);
+        let btn=document.createElement("button");
+        btn.innerText=elem.name;
+        btn.style.backgroundColor=elem.bgColor;
+        btn.style.color=elem.color;
+        document.querySelector("body").append(btn);
+    })
+</script><button style="background-color: blue; color: white;">Primary</button><button style="background-color: grey; color: white;">Secondary</button><button style="background-color: red; color: white;">Danger</button><button style="background-color: yellow; color: black;">Warning</button><button style="background-color: teal; color: white;">Info</button><button style="background-color: white; color: black;">Light</button><button style="background-color: green; color: white;">Success</button><button style="background-color: black; color: white;">Dark</button><button style="background-color: white; color: blue;">Link</button><button style="background-color: pink; color: blue;">Dark Pink</button></body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

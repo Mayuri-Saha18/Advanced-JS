@@ -1,0 +1,90 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #nav{
+            background-color: yellow;
+            width: 70%;
+            height: 80px;
+            font-size: 30px;
+            margin: auto;
+            margin-top: 20px;
+            
+        }
+        
+        #blocks{
+            display: grid;
+            width: 70%;
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows: 500px;
+            gap: 0px 70px;
+            margin: auto;
+            margin-top: 20px;
+            font-size: 30px;
+        }
+        #blocks>div:nth-child(1){
+            background-color: red;
+        }
+        #blocks>div:nth-child(2){
+            background-color: green;
+        }
+
+        @media all and (min-width:480px) and (max-width:720px) {
+            #blocks {
+                width: 80%;
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows: 400px;
+            gap: 0px 40px;
+
+        }
+
+        #blocks>div:nth-child(2){
+            order:9;
+        }
+        #nav{
+            background-color: yellow;
+            width: 80%;
+            height: 80px;
+            font-size: 30px;
+            margin: auto;
+            margin-top: 10px;
+        }
+       
+    }
+    @media all and (min-width:320px) and (max-width:479px) {
+            #blocks {
+                width: 80%;
+            grid-template-columns: repeat(1,1fr);
+            grid-template-rows: repeat(2,200px);
+            gap:20px;
+
+        }
+        
+        #blocks>div:nth-child(2){
+            order:9;
+        }
+        #nav{
+            background-color: yellow;
+            width: 80%;
+            height: 80px;
+            font-size: 30px;
+            margin: auto;
+            margin-top: 10px;
+        }
+        
+    }
+    </style>
+</head>
+<body data-new-gr-c-s-check-loaded="14.1065.0" data-gr-ext-installed="">
+    <div id="nav">
+        <h2>Navigation</h2>
+        </div>
+    <div id="blocks">
+        <div>Left Box</div>
+        <div>Right Box</div>
+    </div>
+    
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

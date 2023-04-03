@@ -1,0 +1,133 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U2C3 Mock</title>
+    <style>
+form {
+  margin: auto;
+  margin-top: 20px;
+  width: 20%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 30px;
+  border: 1px solid black;
+}
+input[type="submit"] {
+  background-color: #2b619e;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 20px;
+}
+
+input[type="submit"]:hover {
+  background-color: #39b652;
+}
+#report{
+            display: grid;
+            width: 80%;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+            margin: auto;
+            margin-top: 20px;
+        }
+#report>div{
+            border-radius: 15px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;     
+        }
+        #report>div>h1{
+          margin-left: 20px;
+        }
+        #report>div>p{
+          margin-left: 20px;
+        }
+        #report>div>h3{
+          margin-left: 20px;
+        }
+        #report>div>button{
+          margin-left: 20px;
+          margin-bottom: 20px;
+        }
+    </style>
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.1065.0" data-gr-ext-installed="">
+    <form>
+      <select id="month">
+        <option value="January">JANUARY</option>
+        <option value="February">FEB</option>
+        <option value="MARCH">MARCH</option>
+        <option value="APRIL">APRIL</option>
+        <option value="MAY">MAY</option>
+        <option value="JUNE">JUNE</option>
+        <option value="JULY">JULY</option>
+        <option value="AUGUST">AUGUST</option>
+        <option value="SEPETEMBER">SEPETEMBER</option>
+        <option value="OCTOBER">OCTOBER</option>
+        <option value="NOVEMBER">NOVEMBER</option>
+        <option value="DECEMBER">DECEMBER</option>
+      </select>
+
+      <input id="income" type="number" placeholder="Enter Income">
+
+      <input id="expense" type="number" placeholder="Enter expense">
+
+      <input type="submit">
+    </form>
+
+    <div id="report">
+          <!-- Append your cards here -->
+    </div>
+  
+
+
+<script>
+  document.querySelector("form").addEventListener("submit",myFunction);
+
+  function myFunction(event){
+    event.preventDefault();
+
+    let avtar=document.querySelector("#month").value;
+    let income=document.querySelector("#income").value;
+    let expense=document.querySelector("#expense").value;
+
+    console.log(avtar,income,expense);
+
+    let box=document.createElement("div")
+    let head=document.createElement("h1");
+    head.innerText=avtar;
+    let head2=document.createElement("p");
+    head2.innerText=income;
+    let head3=document.createElement("p");
+    head3.innerText=expense;
+
+
+    let head4=document.createElement("h3");
+    if(income<expense){
+      head4.innerText="DEBT";
+      head4.style.color="red";
+    }else if(income>expense){
+      head4.innerText="SAVE";
+      head4.style.color="green";
+    }else{
+      head4.innerText="BREAKEVEN";
+      head4.style.color="orange";
+    }
+    let head5=document.createElement("button");
+    head5.innerText="DELETE";
+
+
+    box.append(head,head2,head3,head4,head5);
+    document.querySelector("#report").append(box);
+    head5.style.cursor="pointer";
+    head5.addEventListener("click",deleteButton);
+  }
+  function deleteButton(event){
+    console.log(event.target);
+    event.target.parentNode.remove();
+  }
+  
+</script>
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

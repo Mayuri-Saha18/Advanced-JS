@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: azure;
+        }
+        
+        .navbar{
+            display: flex;
+            justify-content: space-evenly;
+            padding: 2%;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            
+        }
+        .navbar>a{
+            font-size: 20px;
+            text-decoration: none;
+        }
+        input,select{
+            display: block;
+            margin: 10px;
+            font-size: 20px;
+        }
+        option{
+            font-size: 20px;
+        }
+        form{
+            width:30%;
+            border:1px solid black;
+            margin:auto;
+            padding: 2%;
+            margin-top: 10px;
+        }
+        input[type="submit"] {
+            width: 90%;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            border: none;
+        }
+        h1{
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="./index.html">
+            <h1>Add Students</h1>
+        </a>
+        <a href="./students.html">
+            <h1>Students Database</h1>
+        </a>
+        <a href="./admitted.html">
+            <h1>Admitted</h1>
+        </a>
+        <a href="./rejected.html">
+            <h1>Rejected</h1>
+        </a>
+    </div>
+    <h1>Fill this form for admission in Masai School</h1>
+    <form id="form">
+        <input placeholder="Name" type="text" id="name">
+        <input placeholder="Email" type="email" id="email">
+        <input placeholder="Phone Number" type="number" id="phone">
+        <select id="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <select id="course">
+            <option value="Web-Development">Web-Development</option>
+            <option value="Android-Development">Android-Development</option>
+            <option value="Data-Analitics">Data-Analitics</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+<script src="./index.js"></script>
+
+</html>

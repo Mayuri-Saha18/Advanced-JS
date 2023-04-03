@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="first" placeholder="enter 1st number">
+    <input type="number" id="second" placeholder="enter 2nd number">
+    <hr/>
+    <button onclick="showAdd()">Add</button> 
+	<button onclick="showSub()">Subtract</button>
+	<button onclick="showMul()">multiply</button>
+	<button onclick="showDiv()">divide</button>
+   
+    
+</body>
+</html>
+<script>
+     function showAdd() {
+        let one=document.getElementById("first").value;
+        let two=document.getElementById("second").value;
+        let three=Number(one)+Number(two);
+        alert(three);
+    }
+
+    function showSub() {
+        let one=document.getElementById("first").value;
+        let two=document.getElementById("second").value;
+        let three=Number(one)-Number(two);
+        alert(three);
+        
+    }
+
+    function showMul() {
+        let one=document.getElementById("first").value;
+        let two=document.getElementById("second").value;
+        let three=Number(one)*Number(two);
+        alert(three);
+     
+    }
+
+    function showDiv() {
+        let one=document.getElementById("first").value;
+        let two=document.getElementById("second").value;
+        let three=Number(one)/Number(two);
+        alert(three);
+       
+    }
+
+</script>

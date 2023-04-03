@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #heading{
+        text-align: center;
+        width: 40%;
+        margin-top: 10px;
+        margin:auto;
+      }
+      #heading > h1{
+        font-size: 40px;
+        width: 550px;
+      }
+      #heading > p{
+        font-size: 20px;
+        width: 610px;
+        color: grey;
+      }
+      #cards-section{
+        width: 70%;
+        height: auto;
+        margin: auto;
+        margin-top: 30px;
+        display: flex;
+        text-align: center;
+      }
+      #cards_section>div{
+        text-align: center;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+          border-radius: 20px;
+          padding: 20px;
+      }
+      h2 + h1 + p{
+        font-style: italic;
+        margin-top :-25px; ;
+      }
+      h2 + h1 + p + p{
+        font-size: 22px;
+        line-height: 30px;
+        padding: 0px  10px 0px 10px;
+        width: 300px;
+      }
+      button{
+        color: blue;
+        border: 1px solid blue;
+        background-color: white;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 20px;
+        padding: 10px 20px 10px 20px;
+        margin-bottom: 20px;
+      }
+      #cards-section >div:nth-child(1)>h1{
+        color: green;
+      }
+      #cards-section >div:nth-child(2)>h1{
+        color: orange;
+      }
+      #cards-section >div:nth-child(3)>h1{
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="heading">
+      <h1>Choose a plan that right for your business</h1>
+      <p>
+        We collect reviews from our users so you can get an honest opinion of
+        what an experience with our website are really like!
+      </p>
+    </div>
+
+    <!-- Cards section -->
+    <div id="cards-section">
+      <!-- This section should contain 3 children divs, each div should have h2,h1,p,p,button -->
+      <div>
+        <h2>Starter Plan</h2>
+        <h1>Free</h1>
+        <p>Per month</p>
+        <p>We collect reviews from our users so you can get an honest opinion of what an experience with our website.</p>
+        <button>Start  Now</button>
+      </div>
+      <div>
+        <h2>Starter Plan</h2>
+        <h1>$39.00</h1>
+        <p>Per month</p>
+        <p>We collect reviews from our users so you can get an honest opinion of what an experience with our website.</p>
+        <button>Start  Now</button>
+      </div>
+      <div>
+        <h2>Starter Plan</h2>
+        <h1>$59.00</h1>
+        <p>Per month</p>
+        <p>We collect reviews from our users so you can get an honest opinion of what an experience with our website.</p>
+        <button>Start  Now</button>
+      </div>
+    </div>
+  </body>
+</html>

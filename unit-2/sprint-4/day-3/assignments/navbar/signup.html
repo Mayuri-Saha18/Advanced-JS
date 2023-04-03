@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     
+        #container {
+            width: 30%;
+            margin: auto;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+  }
+  form {
+    margin-top: 30px;
+    width: 90%;
+    padding: 20px;
+  }
+  
+  label {
+    font-size: 16px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+  }
+  input[type="text"],
+  input[type="number"],
+  input[type="password"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+  
+  input[type="submit"] {
+    background-color: rgb(209, 209, 209);
+    color: grey;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 20px;
+    margin-top: 20px;
+    text-transform: uppercase;
+  }
+  
+  input[type="submit"]:hover {
+    background-color:blue;
+    color: white;
+  }
+  .privacy{
+            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: rgb(162, 161, 161);
+        }
+        .privacy>a{
+            color: blue;
+            text-decoration: underline;
+        }
+       
+  .signUp{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 16px;
+            color: rgb(162, 161, 161);
+        }
+        .signUp>a{
+            color:blue;
+            text-decoration: underline;
+        }
+       
+    </style>
+</head>
+
+<body>
+    
+
+
+    
+    </div>
+    <div id="container">
+        <h1>Sign Up</h1>
+        <form>
+            <label for="">Full Name</label><br />
+        <input id="name" type="text" placeholder="Enter your full name" /><br />
+        <label for="">Email</label><br />
+          <input id="email" type="text" placeholder="Email" /><br />
+          <label for="">Password</label><br />
+          <input id="password" type="password" placeholder="Password" /><br />
+          <div class="privacy">
+            By signing up, I accept the Masai School <a href="#">Terms of Service</a> and acknowledge the <a href="#">Privacy Policy</a>
+        </div>
+
+         <input type="submit" value="sign up">
+       
+        
+          <div class="signUp">
+            Don't have an account? <a href="#">Sign Up</a>
+        </div>
+        </form>
+    </div>
+
+
+    </div>
+</body>
+
+</html>
+<script>
+  let form=document.querySelector("form");
+let userData=JSON.parse(localStorage.getItem("userData")) || [];
+form.addEventListener("submit",function(event){
+event.preventDefault();
+
+let data={
+    name:form.name.value,
+    email:form.email.value,
+    password:form.password.value,
+}
+// console.log(data);
+if(checkEmail(data.email)===true){
+    userData.push(data);
+    localStorage.setItem("userData",JSON.stringify(userData));
+}
+else{
+    alert("Account alredy exist");
+    window.location.href="login.html";
+}
+})
+function checkEmail(email){
+    let filtered=userData.filter(function(element){
+        return email === element.email;
+    })
+    if(filtered.length >0){
+        return false;
+    }
+else{
+    return true;
+}
+}
+</script>

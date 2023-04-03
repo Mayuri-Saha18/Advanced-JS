@@ -1,0 +1,64 @@
+/* Fill CSS here */
+h1{
+    text-align: center;
+    font-size: 30px;
+    color:rgb(88, 99,  215);
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-family:monospace;
+    font-weight: bold;
+}
+div{
+    display: flex;
+    justify-content: space-around;
+}
+form{
+    width: 20%;
+    margin: aut0;
+    margin-top: 20px;
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
+}
+label{
+    font-size: 20px;
+}
+input[type="text"],
+input[type="number"],
+select,
+textarea{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px;
+    resize: vertical;
+}
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(88, 99, 215);
+    border: 0px;
+    color: white;
+    border-radius: 20px;
+    font-size: 20px;
+}
+table{
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+}
+table th {
+    background-color:rgb(88, 99,  215);
+    color: white;
+    padding: 10px ;
+    text-align: center;
+}
+table td{
+    text-align: center;
+    padding: 10px ;
+}
+table tr{
+    background-color: rgb(211, 215, 254);
+}
+table tr:hover{
+    background-color:grey;
+}

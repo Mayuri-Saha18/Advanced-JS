@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   
+form {
+  margin: auto;
+  margin-top: 30px;
+  width: 30%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 30px;
+}
+
+label {
+  font-size: 20px;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type="submit"] {
+  background-color: #2b619e;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 20px;
+}
+
+input[type="submit"]:hover {
+  background-color: #b93484;
+}
+    </style>
+</head>
+<body>
+
+        <form>
+          <label for="">Name</label><br />
+          <input id="name" type="text" placeholder="Enter  Name" /><br />
+          <label for="">Age </label><br />
+          <input id="age" type="number" placeholder="Enter Age" /><br />
+          <label for="">Gender </label><br />
+          <select id="gender">
+            <option value="Male">M</option>
+            <option value="Female">F</option>
+            <option value="Oyhers">Others</option>
+          </select
+          ><br />
+          <label for="">Email </label><br />
+          <input id="email" type="text" placeholder="Enter email" /><br />
+          <label for="">Mobile number</label><br />
+          <input id="mobile" type="number" placeholder="Enter mobile" /><br />
+          <input type="submit" />
+          </form> 
+</body>
+</html>
+<script>
+  let data=[];
+  document.querySelector("form").addEventListener("submit",myFunction);
+
+function myFunction( ) {
+    event.preventDefault();
+
+      let userObj = {
+      name: document.querySelector("#name").value,
+      age: document.querySelector("#age").value,
+      gender: document.querySelector("#gender").value,
+      email: document.querySelector("#email").value,
+      mobile: document.querySelector("#mobile").value,
+      };
+      data.push(userObj);
+      console.log(data);
+      
+ 
+}
+</script>
