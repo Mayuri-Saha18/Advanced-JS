@@ -1,0 +1,369 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, 
+}
+
+/* navbar style-------- */
+.navbar {
+   
+    width: 100%;
+    padding: 20px;
+    height: 600px;
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/459/17/312/resort-wallpaper-preview.jpg");
+    background-size: cover;
+    background-position: 10 center;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.navbar h3{
+    font-style: italic;
+    font-size: 20px;
+  
+}
+
+.navbar>div:first-child{
+   
+    width: 70%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.navbar>div:last-child{
+    width: 50%;
+    margin: 10% auto;
+    text-align: center;
+}
+
+.navbar h1{
+    font-weight: 600;
+    font-size: 33px;
+}
+.navbar p{
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+.navbar h1 span{
+    font-style: italic;
+}
+
+.navbar button{
+    border-radius: 20px;
+    padding: 9px 25px;
+    text-align: center;
+    margin-right: 20px;
+    align-items: center;
+    font-family: sans-serif;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    color: white;
+    font-weight: 500;
+    margin-bottom: 20px;
+    background-color: rgb(175, 53, 53);
+}
+
+/* work section style---------- */
+.work{
+    width: 60%;
+    margin: 30px auto;
+    text-align: center;
+}
+.work h3{
+    font-weight: 500;
+}
+.work h1, .Apartment h1{
+    font-weight: 600;
+    font-size: 35px;
+}
+.work>div{
+    margin-top: 20px;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.work>div>div:first-child{
+    display: grid;
+    gap: 15px;
+}
+
+.work>div>div:first-child img{
+   
+   
+    width: 100%;
+    height: 200px;
+}
+
+.work>div>div>div{
+   
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 15px;
+}
+.work>div>div>div img{
+   
+    width: 100%;
+    height: 200px;
+}
+.work>div>div:last-child img {
+    width: 100%;
+    height: 415px;
+   
+}
+
+/* Apartment section style--------- */
+.apt {
+    width: 80%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.apt>div {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.apt>div>div {
+    width: 25%;
+    text-align: center;
+
+}
+
+.apt>div>img {
+    width: 25%;
+    height: 250px;
+}
+
+.star {
+    color: rgb(224, 48, 48);
+    display: flex;
+    gap: 10px;
+    margin: 5px auto;
+    margin-top: 40px;
+    width: 40%;
+}
+
+.apt h2 {
+    font-weight: 500;
+    margin-bottom: 15px;
+    
+}
+
+.apt h3 {
+    font-size: 12px;
+}
+
+.apt h3 span {
+    color: grey;
+}
+
+.apt button {
+    background-color: transparent;
+    border: 1px solid #333;
+    cursor: pointer;
+    padding: 5px 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* post section style */
+
+.post{
+    width: 60%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.post_grid{
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(2,1fr);
+}
+.post_grid img{
+    height: 70px;
+    width: 70px;
+}
+.post_grid>div{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}.post h2{
+    font-weight: 15px;
+    margin-bottom: 15px;
+}.post h3{
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+}.post p span{
+    font-weight: 400;
+}
+
+.comments {
+    margin-left: 20px;
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+.About{
+   
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+/* tag section style-------- */
+
+.tags {
+
+    text-align: center;
+    width: 69%;
+    margin: 30px auto;
+}
+
+.tags h2 {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.tags>div {
+    width: 70%;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+.tags>div>div {
+    background-color: rgb(241, 234, 222);
+    padding: 5px 10px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+
+}
+
+/* Responsive Section Style ---- */
+
+@media all and (min-width:392px) and (max-width:769px) {
+    .banner>div:first-child {
+        width: 90%;
+    }
+
+    .banner>div:last-child {
+        width: 90%;
+    }
+
+    .work {
+        width: 90%;
+    }
+
+    .work>div {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+
+
+    /* Apartment section */
+
+    .apt {
+        width: 90%;
+    }
+
+    .apt>div {
+
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .apt>div>div {
+        width: 45%;
+    }
+    
+
+    .apt>div>img {
+        width: 45%;
+    }
+
+    .posts {
+        width: 90%;
+        gap: 0px;
+        grid-template-columns: 80% 20%;
+    }
+    .About{
+        display: none;
+    }
+
+}
+
+@media all and (min-width:51px) and (max-width:391px) {
+    /* nabvar section */
+    .navbar>div:first-child {
+        width: 90%;
+    }
+
+    .navbar>div:last-child {
+        width: 90%;
+    }
+
+
+
+    /* Gallery section  */
+
+    .work {
+        width: 90%;
+    }
+
+    .work>div {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .work>div>div>div {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    /* Apartment--- */
+
+    .apt {
+        width: 90%;
+    }
+
+    .apt>div {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .apt>div>div {
+        width: 100%;
+    }
+
+    .apt>div>img {
+        width: 100%;
+    }
+
+    .post {
+        width: 90%;
+        gap: 30px;
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .post h3 {
+        font-size: 12px;
+    }
+
+    .post p {
+        font-size: 10px;
+    }
+
+    .About{
+        display: none;
+    }
+}
