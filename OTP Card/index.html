@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f4b3.svg"
+        type="image/x-icon" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>Masai Dummy Payment</title>
+</head>
+
+<body>
+    <div id="payment-container">
+
+        <div id="card-image">
+            <div>
+                <img src="./Images/credit-card-chip-gold-isolated-260nw-490290904.webp" alt="credit-card-chip-image">
+                <h2>VISA</h2>
+            </div>
+            <div id="card-number">
+                5762 3652 8941 4823
+            </div>
+            <div>
+                <p>CARD HOLDERS</p>
+                <p>EXPIRES</p>
+                <P>CVC</P>
+            </div>
+            <div>
+                <p id="card-holder-name">JOHN SMITH</p>
+                <p id="card-month-year">09/<p id="card-year">12</p></p>
+                <p id="card-cvc">044</p>
+            </div>
+        </div>
+
+        <div id="card-details">
+            <h2>Payment Details</h2>
+
+            <form>
+                <div>
+                    <label>Card Holder Name</label>
+                    <br />
+                    <div class="input-image">
+                        <img src="./Images/icons8-customer-32.png" alt="user-icon" />
+                        <input type="text" oninput="getName()" id="name" required maxlength="16" placeholder="John Smith" />
+                    </div>
+                </div>
+                <div>
+                    <label>Card Number</label>
+                    <br />
+                    <div class="input-image">
+                        <img src="./Images/icons8-debit-card-50.png" alt="card-icon" />
+                        <input type="text" oninput="getNumber()" id="number" maxlength="16" required placeholder="4256 7890 5678 4532" />
+                    </div>
+                </div>
+                <div id="month-year-cvc">
+                    <div>
+                        <div>
+                            <label>EXPIRY MONTH</label>
+                            <br />
+                            <div class="input-image">
+                                <img src="./Images/icons8-thursday-24.png" alt="calender-icon" />
+                                <input type="text" oninput="getMonth()" id="month" maxlength="2" required placeholder="09" />
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>EXPIRY YEAR</label>
+                            <br />
+                            <div class="input-image">
+                                <img src="./Images/icons8-thursday-24.png" alt="calender-icon" />
+                                <input type="text" oninput="getYear()" id="year" maxlength="4" required placeholder="2020" />
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>CVC</label>
+                            <br />
+                            <div class="input-image">
+                                <img src="./Images/icons8-lock-24.png" alt="cvc-icon" />
+                                <input type="text" oninput="getCvc()" id="cvc" maxlength="3" required placeholder="312" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Payment Amount: <span id="payment-amount">12,300</span></h3>
+                </div>
+                <div>
+                    <input type="submit" value="PAY">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="./scripts/index.js">
+</script>

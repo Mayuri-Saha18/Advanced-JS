@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+h1 {
+    text-align: center;
+    margin: 50px 0px 20px 0px;
+}
+
+#otp-inputs {
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    /* border: 1px solid red; */
+}
+
+#otp-inputs > input {
+    width: 10%;
+    height: 30px;
+    text-align: center;
+}
+
+
+#otp-inputs + div > input {
+    display: block;
+    margin: 30px auto;
+    padding: 8px 50px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background: #B00020;
+}
+
+#otp-inputs + div > input:hover {
+    background: #cf415b;
+}
