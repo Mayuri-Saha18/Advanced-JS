@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#cat-container {
+    /* border: 2px solid red; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
+    gap: 2%;
+}   
+
+
+#cat-container > div > img {
+    width: 70%;
+    height: 300px;
+    display: block;
+    margin: auto;
+    padding: 10px;
+}
+
+#cat-container > div > button {
+    display: block;
+    margin: auto;
+    padding: 5px 10px;
+    font-weight: 550;
+    background-color: darkblue;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#cat-navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px;
+}

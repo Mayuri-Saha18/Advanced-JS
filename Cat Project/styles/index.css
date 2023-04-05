@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    margin: 50px 10px;
+    /* border: 2px solid red; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
+    /* grid-template-columns: repeat(4, 1fr); */
+    gap: 2%;
+}
+
+#container > div {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+}
+
+#container > div > img {
+    width: 70%;
+    padding: 10px;
+    display: block;
+    margin: auto;
+}
+
+#container > div > h2 {
+    /* border: 1px solid red; */
+    text-align: center;
+    font-size: 35px;
+}
+
+#container > div > h2 + p {
+    /* border: 1px solid red; */
+    width: 80%;
+    margin: auto;
+    text-align: start;
+    line-height: 22px;
+    font-size: 18px;
+}
+
+
+#container > div > h2 + p + p {
+    /* border: 1px solid red; */
+    width: 80%;
+    margin: 10px auto;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+
+#container > div > h2 + p + p + p {
+    /* border: 1px solid red; */
+    width: 80%;
+    margin: auto;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+
+#container > div > div {
+    /* border: 1px solid red; */
+    width: 80%;
+    margin: auto;
+}
+
+#container > div > div > button {
+    margin: 5px;
+    padding: 5px 10px;
+    font-weight: 550;
+    background-color: darkblue;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#container > div > div + div {
+    /* border: 1px solid red; */
+    font-weight: 600;
+    font-size: 20px;
+}
+
+
+#container > div > div + div + button {
+    /* border: 1px solid red; */
+    display: block;
+    margin: 10px auto;
+    padding: 5px 10px;
+    font-weight: 550;
+    background-color: darkblue;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
