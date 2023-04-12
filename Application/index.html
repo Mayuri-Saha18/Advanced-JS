@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leave Request Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        background-color: #333;
+        overflow: hidden;
+    }
+
+    nav li {
+        float: left;
+    }
+
+    nav li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        text-decoration: none;
+    }
+
+    nav li a:hover {
+        background-color: #111;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    form {
+        width: 40%;
+        margin:auto;
+        border: 1px solid gray;
+        padding: 10px;
+        background-color: aquamarine;
+    }
+
+    label {
+        display: block;
+        color: blue;
+    }
+
+    input[type=text], select, textarea {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        
+    }
+
+    input[type=radio] {
+        margin-right: 10px;
+    }
+
+    button[type=submit] {
+        background-color: #1e5920;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: auto;
+        display: block;
+    }
+
+    button[type=submit]:hover {
+        background-color: #459ba0;
+    }
+
+    .success {
+        color: green;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+     <!-- Navbar -->
+     <nav>
+        <ul>
+            <li><a href="index.html">Leave Request Page</a></li>
+            <li><a href="dashboard.html">Dashboard Page</a></li>
+            <li><a href="status.html">Status Page</a></li>
+        </ul>
+    </nav>
+
+    <!-- Leave Request Form -->
+    <h1>Leave Request Form</h1>
+    <form id="leaveRequestForm">
+        <label for="uniqueId">Unique ID:</label>
+        <input type="text" id="uniqueId" name="uniqueId" required><br><br>
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" minlength="4" required><br><br>
+        
+        <label for="reason">Reason for leave:</label>
+        <textarea id="reason" name="reason" rows="4" cols="50"></textarea><br><br>
+        
+        <label for="designation">Designation:</label><br>
+
+        <div style="display: flex; flex-direction: row; gap: 10px;">
+        <input type="radio" id="employee" name="designation" value="Employee" required>
+        <label for="employee">Employee</label><br>
+        <input type="radio" id="student" name="designation" value="Student" required>
+        <label for="student">Student</label><br><br>
+        </div>
+        
+        <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <label for="leaveStartDate">Leave Start Date:</label>
+        <input type="date" id="leaveStartDate" name="leaveStartDate" min="2023-04-07" required><br><br>
+        
+        
+        <label for="leaveEndDate">Leave End Date:</label>
+        <input type="date" id="leaveEndDate" name="leaveEndDate" min="2023-04-07" required><br><br>
+        </div><br><br>
+
+        <label for="overseer">Overseer:</label>
+        <select id="overseer" name="overseer" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="EC">EC</option>
+            <option value="HR">HR</option>
+            <option value="Manager">Manager</option>
+        </select><br><br>
+        
+        <button type="submit">Apply</button>
+    </form>
+
+    <script>
+        const form = document.querySelector('#leaveRequestForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // get form data
+            const formData = new FormData(form);
+            const uniqueId = formData.get('uniqueId');
+            const name = formData.get('name');
+            const reason = formData.get('reason');
+            const designation = formData.get('designation');
+            const leaveStartDate = formData.get('leaveStartDate');
+            const leaveEndDate = formData.get('leaveEndDate');
+            const overseer = formData.get('overseer');
+
+            // validate form data
+            if (uniqueId === '') {
+                alert('Please enter a unique ID.');
+                return;
+            }
+            if (localStorage.getItem(uniqueId) !== null) {
+                alert('The ID entered already exists. Please enter a unique ID.');
+                return;
+            }
+            if (name === '') {
+                alert('Please enter your name.');
+                return;
+            }
+            if (reason === '') {
+                alert('Please enter the reason for your leave.');
+                return;
+            }
+            if (designation === '') {
+                alert('Please select your designation.');
+                return;
+            }
+            if (leaveStartDate === '' || leaveEndDate === '' || leaveStartDate > leaveEndDate) {
+                alert('Please enter valid leave dates.');
+                return;
+            }
+            if (overseer === '') {
+                alert('Please select an overseer.');
+                return;
+            }
+
+            // create registration object
+            const registration = {
+                uniqueId,
+                name,
+                reason,
+                designation,
+                leaveStartDate,
+                leaveEndDate,
+                overseer
+                };
+
+// store registration data in local storage
+localStorage.setItem(uniqueId, JSON.stringify(registration));
+
+// show success message and clear form
+alert('Leave request submitted successfully!');
+form.reset();
+});
+</script>
+
+</body>
+</html> 
