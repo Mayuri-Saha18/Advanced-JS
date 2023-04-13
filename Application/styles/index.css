@@ -1,0 +1,29 @@
+#create{
+    width: 400px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+#create>form{
+    display: grid;
+    grid-template-columns: 1;;
+
+}
+form>input{
+    height: 20px;
+    font-size: 15px;
+}
+
+form>select{
+    height: 20px;
+    font-size: 18px;
+}
+#create>h1{
+    text-align: center;
+}
+form>label{
+    font-size: 18px;
+    font-weight: bold;
+}

@@ -4,267 +4,178 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="./styles/navbar.css">
+     <link rel="stylesheet" href="./styles/dashboard.css">
     <title>Document</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-    nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        background-color: #333;
-        overflow: hidden;
-    }
-
-    nav li {
-        float: left;
-    }
-
-    nav li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 10px;
-        text-decoration: none;
-    }
-
-    nav li a:hover {
-        background-color: #111;
-    }
-
-    h1 {
-        text-align: center;
-    }
-
-    form {
-        width: 40%;
-        margin:auto;
-        border: 1px solid gray;
-        padding: 10px;
-        background-color: aquamarine;
-    }
-
-    label {
-        display: block;
-        color: blue;
-    }
-
-    input[type=text], select, textarea {
-        width: 100%;
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        
-    }
-
-    input[type=radio] {
-        margin-right: 10px;
-    }
-
-    button[type=submit] {
-        background-color: #1e5920;
-        color: white;
-        padding: 10px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        margin: auto;
-        display: block;
-    }
-
-    button[type=submit]:hover {
-        background-color: #459ba0;
-    }
-
-    .success {
-        color: green;
-        text-align: center;
-    }
-</style>
 </head>
 <body>
-      <!-- Navbar -->
-      <nav>
-        <ul>
-            <li><a href="index.html">Leave Request Page</a></li>
-            <li><a href="dashboard.html">Dashboard Page</a></li>
-            <li><a href="status.html">Status Page</a></li>
-        </ul>
-    </nav>
-    <h1>Dashboard</h1>
-	<label for="designation-filter">Filter by Designation:</label>
-	<select id="designation-filter">
-		<option value="">All</option>
-		<option value="Employee">Employee</option>
-		<option value="Student">Student</option>
-	</select>
-	<br>
-	<label for="name-search">Search by Name:</label>
-	<input type="text" id="name-search">
-	<br><br>
-	<table id="leave-table">
-		<thead>
-			<tr>
-				<th>Unique ID</th>
-				<th>Name</th>
-				<th>Reason for Leave</th>
-				<th>Designation</th>
-				<th>Start Date</th>
-				<th>End Date</th>
-				<th>Days</th>
-				<th>Overseer</th>
-				<th>OTP</th>
-				<th>Actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			<!-- Leave requests will be inserted here -->
-		</tbody>
-	</table>
+    <div id="navbar">
+        <h2>Masai Leave Portal</h2>
+     <div>
+        <a href="./index.html">
+            <h2>Home</h2>
+        </a>
+        <a href="./dashboard.html">
+            <h2>Dasboard</h2>
+        </a>
+        <a href="./status.html">
+            <h2>Status</h2>
+        </a>
+    </div>
+   </div>
 
-	<!-- Modal for OTP verification -->
-	<div id="otp-modal" style="display: none">
-		<h2>Grant Leave</h2>
-		<p>Please enter the OTP sent to the user's email or phone number:</p>
-		<input type="text" id="otp-input" placeholder="Enter OTP">
-		<button id="otp-submit">Submit</button>
-		<button id="otp-cancel">Cancel</button>
-	</div>
+<div id="functionality">
+    <div>
+   <select id="filter">
+    <option value="">Filter by designation</option>
+    <option value="employee">Emplyoee</option>
+    <option value="student">Student</option>
+   </select>
+  </div>
 
-	<script>
-		const leaveTable = document.querySelector('#leave-table');
-		const designationFilter = document.querySelector('#designation-filter');
-		const nameSearch = document.querySelector('#name-search');
-		const otpModal = document.querySelector('#otp-modal');
-		const otpInput = document.querySelector('#otp-input');
-		const otpSubmit = document.querySelector('#otp-submit');
-		const otpCancel = document.querySelector('#otp-cancel');
+  <div>
+    <input type="search" placeholder="Search by name">
+  </div>
 
-		// Populate leave table from LocalStorage
-		const leaveData = JSON.parse(localStorage.getItem('leaveData')) || [];
-		populateTable(leaveData);
+  
+    <select id="sort">
+      <option value="">Sort By days</option>
+        <option value="startDate">Start Date</option>
+        <option value="endDate">End Date</option>
+    </select>
+  
+</div>
 
-		// Handle filter, search, sort, and actions
-		designationFilter.addEventListener('change', filterTable);
-		nameSearch.addEventListener('input', searchTable);
-		leaveTable.addEventListener('click', handleActions);
-		window.addEventListener('load', sortTable);
 
-		function populateTable(data) {
-			const tbody = leaveTable.querySelector('tbody');
-			tbody.innerHTML = '';
-			data.forEach((leave) => {
-				const row = document.createElement('tr');
-				row.dataset.id = leave.uniqueId;
-				row.innerHTML = `
-					<td>${leave.uniqueId}</td>
-					<td>${leave.name}</td>
-					<td>${leave.reason}</td>
-					<td>${leave.designation}</td>
-					<td>${leave.startDate}</td>
-					<td>${leave.endDate}</td>
-					<td>${calculateDays(leave.startDate, leave.endDate)}</td>
-					<td>${leave.overseer}</td>
-					<td>${generateOTP()}</td>
-					<td>
-						<button class="reject">Reject Leave</button>
-						<button class="grant">
-                        </button>
-					</td>
-				`;
-				tbody.appendChild(row);
-			});
-		}
-
-	function generateOTP() {
-		const otp = Math.floor(1000 + Math.random() * 9000);
-		return otp;
-	}
-
-	function filterTable() {
-		const designation = designationFilter.value;
-		const filteredData = leaveData.filter((leave) => leave.designation === designation);
-		populateTable(filteredData);
-		sortTable();
-	}
-
-	function searchTable() {
-		const searchTerm = nameSearch.value.toLowerCase();
-		const filteredData = leaveData.filter((leave) => leave.name.toLowerCase().includes(searchTerm));
-		populateTable(filteredData);
-		sortTable();
-	}
-
-	function handleActions(e) {
-		if (e.target.classList.contains('reject')) {
-			if (confirm('Are you sure you want to reject this leave application?')) {
-				const row = e.target.closest('tr');
-				const id = row.dataset.id;
-				removeRow(id);
-			}
-		}
-		if (e.target.classList.contains('grant')) {
-			const row = e.target.closest('tr');
-			const id = row.dataset.id;
-			const leave = leaveData.find((leave) => leave.uniqueId === id);
-			otpModal.querySelector('#modal-name').textContent = leave.name;
-			otpModal.querySelector('#modal-designation').textContent = leave.designation;
-			otpModal.querySelector('#modal-start-date').textContent = leave.startDate;
-			otpModal.querySelector('#modal-end-date').textContent = leave.endDate;
-			otpModal.style.display = 'block';
-			otpSubmit.addEventListener('click', handleOTP);
-			otpCancel.addEventListener('click', handleModalClose);
-		}
-	}
-
-	function handleOTP(e) {
-		e.preventDefault();
-		const row = otpModal.querySelector(`tr[data-id="${id}"]`);
-		const otp = parseInt(otpInput.value);
-		const leave = leaveData.find((leave) => leave.uniqueId === id);
-		if (otp === leave.otp) {
-			removeRow(id);
-			handleModalClose();
-		} else {
-			alert('Incorrect OTP entered. Please try again.');
-		}
-	}
-
-	function removeRow(id) {
-		const index = leaveData.findIndex((leave) => leave.uniqueId === id);
-		leaveData.splice(index, 1);
-		localStorage.setItem('leaveData', JSON.stringify(leaveData));
-		const row = leaveTable.querySelector(`tr[data-id="${id}"]`);
-		row.remove();
-	}
-
-	function handleModalClose() {
-		otpModal.style.display = 'none';
-		otpInput.value = '';
-		otpSubmit.removeEventListener('click', handleOTP);
-		otpCancel.removeEventListener('click', handleModalClose);
-	}
-
-	function calculateDays(startDate, endDate) {
-		const start = new Date(startDate);
-		const end = new Date(endDate);
-		const diff = Math.abs(end - start);
-		const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-		return days;
-	}
-
-	function sortTable() {
-		const rows = leaveTable.querySelectorAll('tbody tr');
-		const sortedRows = Array.from(rows).sort((a, b) => {
-			const aDays = parseInt(a.children[6].textContent);
-			const bDays = parseInt(b.children[6].textContent);
-			return bDays - aDays;
-		});
-		leaveTable.querySelector('tbody').innerHTML = '';
-		sortedRows.forEach((row) => leaveTable.querySelector('tbody').appendChild(row));
-	}
-</script>
+<table>
+    <thead>
+        <tr>
+            <th>Unique ID</th>
+            <th>Name</th>
+            <th>Reason</th>
+            <th>Designation</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Overseer</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- append data -->
+    </tbody>
+</table>
 </body>
 </html>
+<script>
+  let ForDashboard = JSON.parse(localStorage.getItem("leaveRequests")) || [];
+let filterByDesignation =  JSON.parse(localStorage.getItem("reject-list")) || [];
+
+
+//  let grantLs = JSON.parse(localStorage.getItem("approve-details")) || [];
+
+Displaydash(ForDashboard)
+
+function Displaydash(ForDashboard){
+    document.querySelector("tbody").innerHTML="";
+    ForDashboard.forEach(function(elem,index) {
+
+        let row = document.createElement("tr");
+
+        let col1 = document.createElement("td");
+        col1.innerText = elem.uniqueId;
+
+        let col2 = document.createElement("td");
+        col2.innerText = elem.name;
+
+        let col3 = document.createElement("td");
+        col3.innerText = elem.reason;
+
+        let col4 = document.createElement("td");
+        col4.innerText = elem.designation;
+
+        let col5 = document.createElement("td");
+        col5.innerText = elem.startDate;
+
+        let col6 = document.createElement("td");
+        col6.innerText = elem.endDate;
+
+        let col7 = document.createElement("td");
+        col7.innerText = elem.overseer;
+
+        let col8 = document.createElement("td");
+        col8.innerText = "Reject Leave";
+        col8.style.backgroundColor="red"
+        col8.addEventListener("click",function() {
+            RemoveFunc(elem,index);
+            localStorage.setItem("leaveRequests",JSON.stringify(ForDashboard))
+        })
+
+        let col9 = document.createElement("td");
+        col9.innerText = "Grant Leave";
+        col9.style.backgroundColor="green"
+        col9.addEventListener("click",function() {
+            Approve(elem,index)
+            
+            localStorage.setItem("leaveRequests",JSON.stringify(ForDashboard))
+        })
+
+        
+       
+        row.append(col1,col2,col3,col4,col5,col6,col7,col8,col9);
+        document.querySelector("tbody").append(row)
+
+    })
+
+}
+let searchInput = document.querySelector("input[type=search]");
+searchInput.addEventListener("input", function() {
+  let searchValue = searchInput.value.toLowerCase();
+  let filteredData = ForDashboard.filter((elem) => elem.name.toLowerCase().includes(searchValue));
+  Displaydash(filteredData);
+});
+
+let sortBySelect = document.querySelector("#sort");
+sortBySelect.addEventListener("change", function() {
+  let sortByValue = sortBySelect.value;
+  let sortedData;
+  if (sortByValue === "startDate") {
+    sortedData = ForDashboard.sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
+} else if (sortByValue === "endDate") {
+sortedData = ForDashboard.sort((a, b) => new Date(a.endDate) - new Date(b.endDate));
+} else {
+sortedData = ForDashboard;
+}
+Displaydash(sortedData);
+});
+
+function RemoveFunc(elem,index) {
+    ForDashboard.splice(index,1);
+    filterByDesignation.push(elem)
+    localStorage.setItem("reject-list",JSON.stringify(filterByDesignation))
+    Displaydash(ForDashboard)
+}
+
+function Approve(elem,index) {
+    // ForDashboard.splice(index,1);
+    filterByDesignation.push(elem)
+    localStorage.setItem("reject-list",JSON.stringify(filterByDesignation))
+    Displaydash(ForDashboard)
+    
+
+}
+
+
+document.querySelector("#filter").addEventListener("change",FiletrFun);
+function FiletrFun() {
+    let select = document.querySelector("#filter").value;
+ if(select == "employee" || select == "student") {
+    let filt = ForDashboard.filter(function (elem,index) {
+        return elem.designation == select
+    })
+    Displaydash(filt)
+ }else{
+    Displaydash(ForDashboard)
+ }
+}
+
+
+</script>

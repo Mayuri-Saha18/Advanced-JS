@@ -1,201 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Leave Request Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-    nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        background-color: #333;
-        overflow: hidden;
-    }
-
-    nav li {
-        float: left;
-    }
-
-    nav li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 10px;
-        text-decoration: none;
-    }
-
-    nav li a:hover {
-        background-color: #111;
-    }
-
-    h1 {
-        text-align: center;
-    }
-
-    form {
-        width: 40%;
-        margin:auto;
-        border: 1px solid gray;
-        padding: 10px;
-        background-color: aquamarine;
-    }
-
-    label {
-        display: block;
-        color: blue;
-    }
-
-    input[type=text], select, textarea {
-        width: 100%;
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        
-    }
-
-    input[type=radio] {
-        margin-right: 10px;
-    }
-
-    button[type=submit] {
-        background-color: #1e5920;
-        color: white;
-        padding: 10px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        margin: auto;
-        display: block;
-    }
-
-    button[type=submit]:hover {
-        background-color: #459ba0;
-    }
-
-    .success {
-        color: green;
-        text-align: center;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+   <title>Document</title>
 </head>
 <body>
-     <!-- Navbar -->
-     <nav>
-        <ul>
-            <li><a href="index.html">Leave Request Page</a></li>
-            <li><a href="dashboard.html">Dashboard Page</a></li>
-            <li><a href="status.html">Status Page</a></li>
-        </ul>
-    </nav>
+    <div id="navbar">
+        <h2>Masai Leave Portal</h2>
+     <div>
+        <a href="./index.html">
+            <h2>Home</h2>
+        </a>
+        <a href="./dashboard.html">
+            <h2>Dasboard</h2>
+        </a>
+        <a href="./status.html">
+            <h2>Status</h2>
+        </a>
+    </div>
+   </div>
 
-    <!-- Leave Request Form -->
-    <h1>Leave Request Form</h1>
-    <form id="leaveRequestForm">
-        <label for="uniqueId">Unique ID:</label>
-        <input type="text" id="uniqueId" name="uniqueId" required><br><br>
-        
+<div id="create">
+     <h1>Leave Request Page</h1>
+     <form>
+        <label for="unique-id">Unique ID:</label>
+        <input type="text" id="unique-id" name="unique-id">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" minlength="4" required><br><br>
-        
-        <label for="reason">Reason for leave:</label>
-        <textarea id="reason" name="reason" rows="4" cols="50"></textarea><br><br>
-        
-        <label for="designation">Designation:</label><br>
-
-        <div style="display: flex; flex-direction: row; gap: 10px;">
-        <input type="radio" id="employee" name="designation" value="Employee" required>
-        <label for="employee">Employee</label><br>
-        <input type="radio" id="student" name="designation" value="Student" required>
-        <label for="student">Student</label><br><br>
-        </div>
-        
-        <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
-        <label for="leaveStartDate">Leave Start Date:</label>
-        <input type="date" id="leaveStartDate" name="leaveStartDate" min="2023-04-07" required><br><br>
-        
-        
-        <label for="leaveEndDate">Leave End Date:</label>
-        <input type="date" id="leaveEndDate" name="leaveEndDate" min="2023-04-07" required><br><br>
-        </div><br><br>
-
+        <input type="text" id="name" name="name" minlength="4">
+        <label for="reason">Reason for Leave:</label>
+        <textarea id="reason" name="reason"></textarea>
+        <label>Designation:</label>
+        <div style="display: flex;">
+        <input type="radio" id="employee" name="designation" value="employee">
+        <label for="employee">Employee</label>
+        <input type="radio" id="student" name="designation" value="student">
+        <label for="student">Student</label>
+    </div>
+        <br><br>
+        <label for="start-date">Leave Start Date:</label>
+        <input type="date" id="start-date" name="start-date" min="${new Date().toISOString().split('T')[0]}">
+        <label for="end-date">Leave End Date:</label>
+        <input type="date" id="end-date" name="end-date" min="${new Date().toISOString().split('T')[0]}">
         <label for="overseer">Overseer:</label>
-        <select id="overseer" name="overseer" required>
-            <option value="" disabled selected>Select an option</option>
-            <option value="EC">EC</option>
-            <option value="HR">HR</option>
-            <option value="Manager">Manager</option>
+        <select id="overseer" name="overseer">
+           <option value="EC">EC</option>
+           <option value="HR">HR</option>
+           <option value="Manager">Manager</option>
         </select><br><br>
-        
-        <button type="submit">Apply</button>
-    </form>
+        <input type="submit" value="Apply">
+     </form>
 
-    <script>
-        const form = document.querySelector('#leaveRequestForm');
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
+     <div id="status"></div>
 
-            // get form data
-            const formData = new FormData(form);
-            const uniqueId = formData.get('uniqueId');
-            const name = formData.get('name');
-            const reason = formData.get('reason');
-            const designation = formData.get('designation');
-            const leaveStartDate = formData.get('leaveStartDate');
-            const leaveEndDate = formData.get('leaveEndDate');
-            const overseer = formData.get('overseer');
-
-            // validate form data
-            if (uniqueId === '') {
-                alert('Please enter a unique ID.');
-                return;
-            }
-            if (localStorage.getItem(uniqueId) !== null) {
-                alert('The ID entered already exists. Please enter a unique ID.');
-                return;
-            }
-            if (name === '') {
-                alert('Please enter your name.');
-                return;
-            }
-            if (reason === '') {
-                alert('Please enter the reason for your leave.');
-                return;
-            }
-            if (designation === '') {
-                alert('Please select your designation.');
-                return;
-            }
-            if (leaveStartDate === '' || leaveEndDate === '' || leaveStartDate > leaveEndDate) {
-                alert('Please enter valid leave dates.');
-                return;
-            }
-            if (overseer === '') {
-                alert('Please select an overseer.');
-                return;
-            }
-
-            // create registration object
-            const registration = {
-                uniqueId,
-                name,
-                reason,
-                designation,
-                leaveStartDate,
-                leaveEndDate,
-                overseer
-                };
-
-// store registration data in local storage
-localStorage.setItem(uniqueId, JSON.stringify(registration));
-
-// show success message and clear form
-alert('Leave request submitted successfully!');
-form.reset();
-});
-</script>
+     <script src="./scripts/index.js"></script>
+ </div>
 
 </body>
-</html> 
+
+</html>

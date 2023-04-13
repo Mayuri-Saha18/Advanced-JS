@@ -1,0 +1,22 @@
+table{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    margin-top: 30px;
+}
+
+table td, table th {
+    text-align: center;
+    padding: 8px;
+    border: 1px solid ;
+}
+
+table th {
+    background-color: rgb(245, 257, 16);
+}
+
+table tr {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

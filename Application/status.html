@@ -4,151 +4,109 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./styles/navbar.css">
+   <link rel="stylesheet" href="./styles/status.css">
     <title>Document</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-    nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        background-color: #333;
-        overflow: hidden;
-    }
-
-    nav li {
-        float: left;
-    }
-
-    nav li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 10px;
-        text-decoration: none;
-    }
-
-    nav li a:hover {
-        background-color: #111;
-    }
-
-    h1 {
-        text-align: center;
-    }
-
-    form {
-        width: 40%;
-        margin:auto;
-        border: 1px solid gray;
-        padding: 10px;
-        background-color: aquamarine;
-    }
-
-    label {
-        display: block;
-        color: blue;
-    }
-
-    input[type=text], select, textarea {
-        width: 100%;
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        
-    }
-
-    input[type=radio] {
-        margin-right: 10px;
-    }
-
-    button[type=submit] {
-        background-color: #1e5920;
-        color: white;
-        padding: 10px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        margin: auto;
-        display: block;
-    }
-
-    button[type=submit]:hover {
-        background-color: #459ba0;
-    }
-
-    .success {
-        color: green;
-        text-align: center;
-    }
-</style>
 </head>
 <body>
-      <!-- Navbar -->
-      <nav>
-        <ul>
-            <li><a href="index.html">Leave Request Page</a></li>
-            <li><a href="dashboard.html">Dashboard Page</a></li>
-            <li><a href="status.html">Status Page</a></li>
-        </ul>
-    </nav>
-    <h1>Leave Application Status</h1>
-	<label for="status-filter">Filter by Status:</label>
-	<select id="status-filter">
-		<option value="">All</option>
-		<option value="Granted">Granted</option>
-		<option value="Rejected">Rejected</option>
-		<option value="Pending">Pending</option>
-	</select>
-	<table id="status-table">
-		<thead>
-			<tr>
-				<th>Unique ID</th>
-				<th>Name</th>
-				<th>Days of Leave</th>
-				<th>Overseer</th>
-				<th>Status</th>
-			</tr>
-		</thead>
-		<tbody></tbody>
-	</table>
-	<script>
-		const statusTable = document.querySelector('#status-table');
-		const statusFilter = document.querySelector('#status-filter');
+    <div id="navbar">
+        <h2>Masai Leave Portal</h2>
+     <div>
+        <a href="./index.html">
+            <h2>Home</h2>
+        </a>
+        <a href="./dashboard.html">
+            <h2>Dasboard</h2>
+        </a>
+        <a href="./status.html">
+            <h2>Status</h2>
+        </a>
+    </div>
+   </div>
 
-		// Populate status table from LocalStorage
-		const leaveData = JSON.parse(localStorage.getItem('leaveData')) || [];
-		populateTable(leaveData);
+    <div>
+        <select id="filter">
+            <option value="">Select By Designation</option>
+            <option value="employee">Employee </option>
+            <option value="student">Student</option>
+        </select>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Designation</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Overseer</th>
+                    <th>Status</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
 
-		// Handle filter
-		statusFilter.addEventListener('change', filterTable);
-
-		function populateTable(data) {
-			const tbody = statusTable.querySelector('tbody');
-			tbody.innerHTML = '';
-			data.forEach((leave) => {
-				const row = document.createElement('tr');
-				row.dataset.id = leave.uniqueId;
-				row.innerHTML = `
-					<td>${leave.uniqueId}</td>
-					<td>${leave.name}</td>
-					<td>${calculateDays(leave.startDate, leave.endDate)}</td>
-					<td>${leave.overseer}</td>
-					<td>${leave.status}</td>
-				`;
-				tbody.appendChild(row);
-			});
-		}
-
-		function filterTable() {
-			const status = statusFilter.value;
-			const filteredData = leaveData.filter((leave) => {
-				if (status === '') return true;
-				return leave.status === status;
-			});
-			populateTable(filteredData);
-		}
-	</script>
+            </tbody>
+        </table>
+    </div>
+    
 </body>
+
 </html>
+<script>
+    let filterByDesignation=JSON.parse(localStorage.getItem("reject-list"))||[];
+// let grantLs=JSON.parse(localStorage.getItem("approve-details"))||[];
+
+Dashbord(filterByDesignation)
+function Dashbord(filterByDesignation){
+
+    document.querySelector("tbody").innerHTML=""
+    filterByDesignation.forEach(function (elem,index){
+        let row = document.createElement("tr");
+
+        let col1 = document.createElement("td");
+        col1.innerText = elem.uniqueId;
+
+        let col2 = document.createElement("td");
+        col2.innerText = elem.name;
+
+        let col3 = document.createElement("td");
+        col3.innerText = elem.reason;
+
+        let col4 = document.createElement("td");
+        col4.innerText = elem.designation;
+
+        let col5 = document.createElement("td");
+        col5.innerText = elem.startDate;
+
+        let col6 = document.createElement("td");
+        col6.innerText = elem.endDate;
+
+        let col7 = document.createElement("td");
+        col7.innerText = elem.overseer;
+        let col8 = document.createElement("td");
+        col8.innerText = elem.innerText;
+
+        row.append(col1,col2,col3,col4,col5,col6,col7,col8);
+        document.querySelector("tbody").append(row)
+        
+    })
+    
+}
+
+document.querySelector("#filter").addEventListener("change",FilterDes);
+
+function FilterDes(){
+    let select = document.querySelector("#filter").value;
+    if(select == "employee" || select == "student") {
+        let filt = filterByDesignation.filter(function (elem,index) {
+            return elem.designation == select;
+        });
+        Dashbord(filt);
+    } else {
+        Dashbord(filterByDesignation);
+    }
+}
+
+
+</script>
