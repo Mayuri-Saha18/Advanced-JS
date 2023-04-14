@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <style>
+      /* All CSS For Home Page Goes Here  */
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: orange;
+      }
+      .nav>a{
+        text-decoration: none;
+        color: black;
+      }
+      #product-container{
+        margin: auto;
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 20px;
+        border: 1px solid black;
+      }
+      .product{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="nav">
+      <h1>Web E-Commerce</h1>
+      <a href="./index.html">Home</a>
+      <a href="./cart.html">Cart</a>
+    </div>
+    <h1 id="alert"></h1>
+    <main>
+      <div id="filter">
+        <div id="brand-filter">
+          <h2>Filter By Brands</h2>
+          <div>
+            <input type="checkbox" id="roadster" />
+            <p>Roadster</p>
+          </div>
+          <div>
+            <input type="checkbox" id="blackberrys" />
+            <p>Blackberrys</p>
+          </div>
+          <div>
+            <input type="checkbox" id="van-heusen" />
+            <p>Van Heusen</p>
+          </div>
+          <div>
+            <input type="checkbox" id="allen-solly" />
+            <p>Allen Solly</p>
+          </div>
+          <div>
+            <input type="checkbox" id="twills" />
+            <p>Twills</p>
+          </div>
+        </div>
+        <div id="category-filter">
+          <h2>Filter By Categories</h2>
+          <div>
+            <input type="checkbox" id="men" />
+            <p>Men</p>
+          </div>
+          <div>
+            <input type="checkbox" id="women" />
+            <p>Women</p>
+          </div>
+          <div>
+            <input type="checkbox" id="homedecor" />
+            <p>Homedecor</p>
+          </div>
+          <div>
+            <input type="checkbox" id="kids" />
+            <p>Kids</p>
+          </div>
+        </div>
+      </div>
+      <div id="product-container">
+        <div>
+          <!-- Here Append All the Products  -->
+        </div>
+      </div>
+    </main>
+  </body>
+  <script type="module" src="./Modules/index.js">
+    // All Your Script for Home Page Goes Here
+  </script>
+</html>
