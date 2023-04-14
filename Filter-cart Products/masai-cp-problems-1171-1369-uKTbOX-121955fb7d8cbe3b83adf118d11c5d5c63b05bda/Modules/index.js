@@ -56,11 +56,7 @@ function DisplayData(data){
             }else{
                 document.getElementById("alert").innerText="Product already in the cart"
             }
-            // cartData.push(el)
-            // localStorage.setItem("cart",JSON.stringify(cartData))
-
-            
-            // wishData.push(el)
+           
         })
 
         left_container.append(brand,title,category,price,button)
@@ -77,22 +73,4 @@ function  addtoCart(id){
     }
     return true
 }
-// function wishData(el){
-//     fetch(`https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products/${el.id}`,{
-//         method:"POST",
-//         hesders:{
-//             "Content-Type":"application/json"
-//         },
-//         body:JSON.stringify(el)
-//     })
-//     .then((res)=>res.json())
-//     .then((res)=>{
-//         console.log(res)
-//         document.getElementById("alert").innerText="Product added to The cart"
-//         localStorage.setItem("cart",JSON.stringify(cartData))
-//     })
-//     .catch((err)=>{
-//         console.log(err)
-//         document.getElementById("alert").innerText="Product already in the cart"
-//     })
-// }
+

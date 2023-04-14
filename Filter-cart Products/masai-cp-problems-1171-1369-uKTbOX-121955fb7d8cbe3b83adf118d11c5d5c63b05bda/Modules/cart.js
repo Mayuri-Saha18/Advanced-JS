@@ -3,18 +3,17 @@ let cartData=JSON.parse(localStorage.getItem("cart")) || []
 
 let totalprice=0
 
-// function fetchData(el,id){
+// function fetchData(id) {
 //     fetch(`https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products/${id}`)
-//     .then((res)=>res.json())
-//     .then((res)=>{
-//        data=res;
-//        display(res)
-//     })
-//     .catch((err)=>{
-//        console.log(err)
-//     })
-// }
-// fetchData()
+//       .then((res) => res.json())
+//       .then((res) => {
+//         let data = [res];
+//         display(data);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   }
 
 function display(data){
 
@@ -64,3 +63,6 @@ function display(data){
     document.getElementById("cart-total").innerText=totalprice
 }
 display(cartData)
+// cartData.forEach((id) => {
+//     fetchData(id);
+//   });
