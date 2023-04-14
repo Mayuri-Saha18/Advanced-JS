@@ -1,0 +1,130 @@
+<html>
+  <head>
+    <title>Volantiers</title>
+    <style>
+      #navbar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  font-size: 18px;
+}
+
+#navbar div {
+  display: flex;
+}
+
+#navbar h2 {
+  margin-right: auto;
+}
+
+#navbar a {
+  text-decoration: none;
+  color: #fff;
+  margin-right: 20px;
+}
+
+#navbar a:last-child {
+  margin-right: 0;
+}
+
+#navbar a:hover {
+  text-decoration: underline;
+}
+#filter {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #ddd;
+}
+
+td:last-child {
+  text-align: center;
+}
+
+td:last-child button {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+td:last-child button:hover {
+  background-color: #e53935;
+}
+
+
+
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+      <h2>Masai NGO Management</h2>
+      <div>
+        <a href="./index.html">
+          <h2>Home</h2>
+        </a>
+        <a href="./donators.html">
+          <h2>Donators</h2>
+        </a>
+        <a href="./volantiers.html">
+          <h2>Volantiers</h2>
+        </a>
+      </div>
+    </div>
+    <select id="filter" onchange="filtered(event)">
+      <option value="">Select Category</option>
+      <option value="Covid helper fund">Covid helper fund</option>
+      <option value="Orphanage helper fund">Orphanage helper fund</option>
+      <option value="Ukrain war helper fund">Ukrain war helper fund</option>
+      <option value="Old age home helper fund">Old age home helper fund</option>
+    </select>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone No.</th>
+          <th>Email</th>
+          <th>Category</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Update the rows here using jsvascript -->
+      </tbody>
+    </table>
+  </body>
+  <script src="./Scripts/volantiers.js"></script>
+</html>
