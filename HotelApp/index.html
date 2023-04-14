@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="./index.html">Home Page</a></li>
+            <li><a href="./admindashboard.html">Admin Dashboard</a></li>
+            <li><a href="./hotels.html">Hotels</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+		<div class="form-container">
+			<div class="toggle-btn">
+				<span>Login</span>
+				<span>Register</span>
+			</div>
+			<form id="login-form" method="post">
+				<input type="email" name="email" placeholder="Email" required>
+				<input type="password" name="password" placeholder="Password" required>
+				<button type="submit">Login</button>
+			</form>
+			<form id="register-form" method="post">
+				<input type="text" name="name" placeholder="Name" required>
+				<input type="email" name="email" placeholder="Email" required>
+				<input type="password" name="password" placeholder="Password" required>
+				<input type="password" name="repeat_password" placeholder="Repeat Password" required>
+				<button type="submit">Register</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
+<script>
+    const toggleBtn = document.querySelector('.toggle-btn');
+const loginForm = document.querySelector('#login-form');
+const registerForm = document.querySelector('#register-form');
+
+toggleBtn.addEventListener('click', () => {
+  if (loginForm.style.display !== 'none') {
+    loginForm.style.display = 'none';
+    registerForm.style.display = 'block';
+    toggleBtn.querySelector(':nth-child(1)').classList.remove('active');
+    toggleBtn.querySelector(':nth-child(2)').classList.add('active');
+  } else {
+    registerForm.style.display = 'none';
+    loginForm.style.display = 'block';
+    toggleBtn.querySelector(':nth-child(2)').classList.remove('active');
+    toggleBtn.querySelector(':nth-child(1)').classList.add('active');
+  }
+});
+
+loginForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = loginForm.email.value;
+  const password = loginForm.password.value;
+  const url = 'https://reqres.in/api/login';
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, password })
+    });
+    // if (!response.ok) {
+    //   throw new Error('Invalid credentials');
+    // }
+    const data = await response.json();
+    if (email === 'eve.holt@reqres.in' && password === 'cityslicka') {
+      window.location.href = 'admindashboard.html';
+    } else {
+      window.location.href = 'hotels.html';
+    }
+  } catch (error) {
+    alert('Login failed. Please try again.');
+    console.error('Error:', error);
+  }
+});
+
+registerForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const name = registerForm.name.value;
+  const email = registerForm.email.value;
+  const password = registerForm.password.value;
+  const repeat_password = registerForm.repeat_password.value;
+  const url = 'https://data-server-seven.vercel.app/users';
+
+  if (password !== repeat_password) {
+    alert('Passwords do not match');
+    return;
+  }
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name, email, password,repeat_password })
+    });
+
+    // if (!response.ok) {
+    //   throw new Error('Registration failed');
+    // }
+
+    alert('Registration successful');
+    registerForm.reset();
+    loginForm.style.display = 'block';
+    registerForm.style.display = 'none';
+    toggleBtn.querySelector(':nth-child(2)').classList.remove('active');
+    toggleBtn.querySelector(':nth-child(1)').classList.add('active');
+  } catch (error) {
+    alert('Registration failed. Please try again.');
+    console.log('Error:', error);
+  }
+});
+
+
+</script>

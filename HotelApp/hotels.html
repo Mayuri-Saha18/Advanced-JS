@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./style/hotel.css"
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="./index.html">Home Page</a></li>
+            <li><a href="./admindashboard.html">Admin Dashboard</a></li>
+            <li><a href="./hotels.html">Hotels</a></li>
+        </ul>
+    </nav>
+    <h1>Hotels</h1>
+    <div class="filtering">
+        <select name="" id="filter" onchange="filter()">
+            <option value="filter">Filter</option>
+            <option value="Family">Family</option>
+            <option value="Deluxe">Deluxe</option>
+            <option value="Suite">Suite</option>
+        </select>
+        <select name="" id="sort">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+        </select>
+    </div>
+
+   
+
+   <div id="hotel-card"></div>
+   <div id="container"></div>
+   <div id="buttons"></div>
+  
+</body>
+
+</html>
+<script src="./script/hotel.js"></script>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./style/admin.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="./index.html">Home Page</a></li>
+            <li><a href="./admindashboard.html">Admin Dashboard</a></li>
+            <li><a href="./hotels.html">Hotels</a></li>
+        </ul>
+    </nav>
+
+
+    <form id="hotel-form">
+        <!-- <input type="number" name="id" id="id" placeholder="ID"/> -->
+        <label for="category">Category:</label>
+        <select name="category" id="category" required>
+          <option value="">--Select a Category--</option>
+          <option value="Family">Family</option>
+          <option value="Deluxe">Deluxe</option>
+          <option value="Suite">Suite</option>
+        </select>
+      
+        <label for="image">Image URL:</label>
+        <input type="url" name="image" id="image" required>
+      
+        <label>Type of Room:</label>
+        <div>
+          <input type="radio" name="room-type" value="AC" id="ac-room" required>
+          <label for="ac-room">AC</label>
+        </div>
+        <div>
+          <input type="radio" name="room-type" value="Non-AC" id="non-ac-room">
+          <label for="non-ac-room">Non-AC</label>
+        </div>
+      
+        <label for="bed-type">Bed Type:</label>
+        <select name="bed-type" id="bed-type" required>
+          <option value="">--Select a Bed Type--</option>
+          <option value="Single">Single</option>
+          <option value="Double">Double</option>
+        </select>
+      
+        <label for="adults">No. of Adults:</label>
+        <input type="number" name="adults" id="adults" min="1" required>
+      
+        <label for="capacity">Max Capacity:</label>
+        <input type="number" name="capacity" id="capacity" min="1" required>
+      
+        <label for="cost">Cost per night (Rs):</label>
+        <input type="number" name="cost" id="cost" min="1" required>
+      
+        <button type="submit">Submit</button>
+      </form>
+      
+      
+    <div>
+        <h2>Rooms List</h2>
+        <table id="roomsTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Category</th>
+              <th>Type of Room</th>
+              <th>Bed Type</th>
+              <th>No. of Persons</th>
+              <th>Capacity</th>
+              <th>Cost per Night (Rs.)</th>
+              <th>Status</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody id="roomsTableBody">
+            <!-- append data -->
+          </tbody>
+        </table>
+      </div>
+</body>
+</html>
+<script src="./script/dashboard.js"></script>
