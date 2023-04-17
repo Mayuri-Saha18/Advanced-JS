@@ -77,9 +77,7 @@ function handleByPrice(){
     let query = text.toLowerCase()
 
     let searchData = data.filter((el)=>{
-        if(el.name.toLowerCase()==query){
-            return el
-        }
+        return el.name.toLowerCase().includes(query)
     })
     appendData(searchData)
   }
