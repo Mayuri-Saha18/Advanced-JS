@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.logo a{
+    font-family: sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 24px;
+    color: whitesmoke;
+}
+
+nav{
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px;
+    background-color: orangered;
+    font-size: 17px;
+    overflow: hidden;
+}
+
+nav ul{
+   
+    display: flex;
+    gap:29px;
+    list-style: none;
+}
+
+nav li a{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 20px 10px;
+    color: black;
+}
+nav li a:hover{
+    background-color: wheat;
+}
+

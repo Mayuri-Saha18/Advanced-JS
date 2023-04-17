@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars page</title>
+    <link rel="stylesheet" href="./Styles/cars.css"/>
+    <link rel="stylesheet" href="./Styles/navbar.css"/>
+    <script src="https://kit.fontawesome.com/c43e650f93.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <nav>
+        <div class="logo"><a href="">Masai Carwale</a></div>
+        <ul>
+            <li><a href="./index.html">Add new car</a></li>
+            <li><a href="./cars.html">Cars</a></li>
+            <li><a href="./wishlist.html">Wishlist</a></li>
+        </ul>
+    </nav>
+
+    <div class="operation">
+        <select name="" id="sort" onchange="SortByPrice(event)">
+            <option value="" selected="true" disabled="disabled">Sort by Price</option>
+            <option value="htl">High to Low</option>
+            <option value="lth">Low to High</option>
+        </select>
+
+        <select name="" id="SortKms" onchange="SortByKms(event)">
+          <option value="" selected="true" disabled="disabled">Sort By KMS</option>
+          <option value="htl">High to Low</option>
+          <option value="lth">Low to High</option>
+        </select>
+
+        <select name="" id="brand" onchange="filterByBrand(event)">
+          <option value="" selected="true" disabled="disabled">Filter By Brand</option>
+          <option value="Tata">Tata</option>
+          <option value="Hyundai">Hyundai</option>
+          <option value="Mahindra">Mahindra</option>
+          <option value="Toyota">Toyota</option>
+          <option value="Kia">Kia</option>
+        </select>
+    </div>
+
+    <h1 class="fav">My Supercars</h1>
+    <!-- <h1 class="load"></h1> -->
+
+    <div class="container"></div>
+</body>
+</html>
+
+<script src="./Scripts/cars.js"></script>

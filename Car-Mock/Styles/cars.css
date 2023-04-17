@@ -1,0 +1,68 @@
+.container{
+    
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    width: 90%;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.container>div{
+    width: 250px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 11px 1px rgb(174, 173, 173);
+}
+.container div img{
+    width: 100%;
+}
+
+.container div p{
+    padding: 6px;
+
+}
+.borderFont{
+    font-weight: 600;
+}
+
+.kms{
+    
+    color: wheat;
+    
+    background-color: black;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.icon_box{
+   
+    display: flex;
+    justify-content: space-around;
+    font-size: large;
+    padding: 10px;
+}
+.icon_box i:hover{
+    cursor: pointer;
+    color: orangered;
+}
+.operation select{
+    padding: 10px;
+    
+    background-color: grey;
+    border-radius: 7px;
+    margin: auto;
+    margin-top: 10px;
+    
+}
+.operation select option{
+    color: black;
+    border: 1px solid red;
+    font-weight: bold;
+}
+.fav{
+    text-align: center;
+    color: orangered;
+    margin-top: 20px;
+}
+

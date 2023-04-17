@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masai Carwale</title>
+    <link rel="stylesheet" href="./Styles/index.css">
+    <link rel="stylesheet" href="./Styles/navbar.css">
+</head>
+<body>
+    <nav>
+        <div class="logo"><a href="">Masai Carwale</a></div>
+        <ul>
+            <!-- <li><a href="#"></a></li> -->
+            <li><a href="./cars.html">My Cars</a></li>
+            <li><a href="./wishlist.html">Wishlist</a></li>
+        </ul>
+    </nav>
+
+    <form onsubmit="handleform(event)">
+        <div class="heading">
+            <h1>Add New Car for Advertisement</h1>
+        </div>
+        <div>
+            <label for="brand">Brand</label>
+            <select name="" id="Brand">
+                <option value="" selected="true" disabled="disabled">Type Brand</option>
+                <option value="Maruti">Tata</option>
+                <option value="Ford">Hyundai</option>
+                <option value="Tata">Tata</option>
+                <option value="Hyundai">Hyundai</option>
+                <option value="Mahindra">Mahindra</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Kia">Kia</option>
+            </select>
+        </div>
+        <div>
+            <label for="type">Type</label>
+            <select name="" id="Type" >
+                <option value="Type" selected="true" disabled="disabled">Enter Type</option>
+                <option value="Manual">Manual</option>
+                <option value="Automated">Automated</option>
+            </select>
+        </div>
+        <div>
+            <label for="Purchase Year">Purchase Year</label>
+            <select name="" id="Year_of_purchase" >
+               <option value="" selected="true" disabled="disabled">Purchase Year</option>
+               <option value="2017">2017</option>
+               <option value="2019">2019</option>
+               <option value="2020">2020</option>
+               <option value="2021">2021</option>
+               <option value="2022">2022</option>
+        </select>
+      </div>
+      <div>
+        <label for="km">KM driven</label>
+        <input type="number" id="km">
+      </div>
+      <div>
+        <label for="Description">Description</label>
+        <input type="text" id="Description">
+      </div>
+      <div>
+        <label for="Price">Price</label>
+        <input type="number" id="Price">
+      </div>
+      <input type="submit">
+    </form>
+
+    
+
+</body>
+</html>
+<script src="./Scripts/index.js"></script>
