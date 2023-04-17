@@ -9,7 +9,7 @@
 let api_key =
   "live_ZNQf09iC2gudTcUkr6eh1U0i5IR7LIQSty7X7tMSUBxHyrhQgEXHr7oWy6RP7dVU";
 
-let page = 1;
+let page = 0;
 
 let imgDataArr = [];
 
@@ -51,21 +51,21 @@ const dataFetch = (page) => {
       console.log(err);
     });
 };
-dataFetch();
+dataFetch(page);
 
 // ? Pagination code is below
 
 let getPage = document.getElementById("pageDisplay");
 
-getPage.innerText = page;
+getPage.innerText = page+1;
 
 let pre = document.getElementById("pre");
 pre.addEventListener("click", () => {
   console.log("i am invoking prev");
-  if (page > 1) {
+  if (page > 0) {
     page--;
     dataFetch(page);
-    getPage.innerText = page;
+    getPage.innerText = page+1;
   }
 });
 
@@ -73,10 +73,10 @@ let next = document.getElementById("next");
 next.addEventListener("click", () => {
   console.log("i am invoking next");
 
-  if (page < 1) {
+  if (page < 4) {
     page++;
     dataFetch(page);
-    getPage.innerText = page;
+    getPage.innerText = page+1;
   }
 });
 
