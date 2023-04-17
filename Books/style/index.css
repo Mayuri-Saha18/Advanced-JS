@@ -1,0 +1,11 @@
+.nav-bar {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-bar button {
+  width: 100px;
+  height: 40px;
+}

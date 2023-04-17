@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/user.css" />
+  </head>
+  <body>
+    <h1>User Pannel</h1>
+    <div class="filter-sort">
+      <select name="" id="filter" onchange="filter()">
+        <option value="filter">Filter</option>
+        <option value="science">Science</option>
+        <option value="fiction">Fiction</option>
+        <option value="history">History</option>
+        <option value="tech">Tech</option>
+        <option value="business">Business</option>
+      </select>
+
+      <select name="" id="sort">
+        <option value="asc">Low to High</option>
+        <option value="desc">High to Low</option>
+      </select>
+    </div>
+
+    <div class="container"></div>
+  </body>
+</html>
+<script src="./script/user.js"></script>

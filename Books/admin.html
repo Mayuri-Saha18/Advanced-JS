@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/admin.css" />
+  </head>
+  <body>
+    <h1>Addmin Pannel</h1>
+    <div class="form">
+      <input
+        type="text"
+        name=""
+        placeholder="Enter your image link"
+        id="image"
+      />
+      <input type="text" name="" id="id" placeholder="Enter book id" />
+      <input type="text" name="" id="name" placeholder="Enter book name" />
+      <input type="text" name="" id="author" placeholder="Enter author name" />
+      <select name="" id="genre">
+        <option value="Genre">Genre</option>
+        <option value="Science">Science</option>
+        <option value="Fiction">Fiction</option>
+        <option value="History">History</option>
+        <option value="Tech">Tech</option>
+        <option value="Business">Business</option>
+      </select>
+
+      <select name="" id="edition">
+        <option value="Edition">Edition</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+      </select>
+      <input
+        type="text"
+        name=""
+        id="publiser"
+        placeholder="Enter publiser name"
+      />
+      <input type="text" name="" id="cost" placeholder="Enter cost" />
+      <button class="btn1" onclick="postData()">Add Book</button>
+    </div>
+
+    <div class="container"></div>
+  </body>
+</html>
+
+<script src="./script/admin.js"></script>
