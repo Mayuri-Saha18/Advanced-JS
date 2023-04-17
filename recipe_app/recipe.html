@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    nav{
+        display: flex;
+        justify-content: space-between;
+        background-color: black;
+        height: 70px;
+    }
+    nav>a{
+        color: white;
+        text-decoration: none;
+        margin: auto;
+        font-size: larger;
+    }
+    * {
+	box-sizing: border-box;
+}
+#home-container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+ }
+ img{
+    width: 100%;
+ }
+ .form-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="url"],
+select,
+textarea {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="url"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #0077cc;
+}
+
+button[type="submit"] {
+  background-color: #0077cc;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button[type="submit"]:hover {
+  background-color: #005fa3;
+}
+
+/* edit */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 1rem;
+  border: 1px solid #888;
+  max-width: 600px;
+}
+
+.close-button {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#edit-recipe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+#edit-recipe-form label {
+  font-weight: bold;
+}
+
+#edit-recipe-form input[type="text"],
+#edit-recipe-form input[type="url"],
+#edit-recipe-form select,
+#edit-recipe-form textarea {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+#edit-recipe-form input[type="text"]:focus,
+#edit-recipe-form input[type="url"]:focus,
+#edit-recipe-form select:focus,
+#edit-recipe-form textarea:focus {
+  outline: none;
+  border-color: #0077cc;
+}
+
+#edit-recipe-form button[type="submit"] {
+  background-color: #0077cc;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  align-self: flex-end;
+}
+
+#edit-recipe-form button[type="submit"]:hover,
+#edit-recipe-form button[type="submit"]:focus {
+  background-color: #005daa;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    margin: 25% auto;
+  }
+}
+
+</style>
+<body>
+    <nav>
+        <a href="./index.html">SignUp</a>
+        <a href="./signin.html">SignIn</a>
+        <a href="./home.html">Home Page</a>
+        <a href="./recipe.html">My recipe Page</a>
+    </nav>
+
+    <div class="form-container">
+        <h2>Add Recipe</h2>
+        <form id="recipe-form">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required>
+      
+          <label for="image">Image URL:</label>
+          <input type="url" id="image" name="image" required>
+      
+          <label for="description">Short Description:</label>
+          <input type="text" id="description" name="description" required>
+      
+          <label for="category">Category:</label>
+          <select id="category" name="category" required>
+            <option value="" disabled selected>Select category</option>
+            <option value="Starter">Starter</option>
+            <option value="Main Course">Main Course</option>
+            <option value="Dessert">Dessert</option>
+          </select>
+      
+          <label for="ingredients">Ingredients:</label>
+          <input type="text" id="ingredients" name="ingredients" required>
+      
+          <label for="instructions">Instructions:</label>
+          <textarea id="instructions" name="instructions" rows="6" required></textarea>
+      
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <!-- edit -->
+      
+      <div id="edit-recipe-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <h2>Edit Recipe</h2>
+          <form id="edit-recipe-form">
+            <input type="hidden" id="edit-recipe-id" name="id">
+      
+            <label for="edit-recipe-title">Title:</label>
+            <input type="text" id="edit-recipe-title" name="title" required>
+      
+            <label for="edit-recipe-image">Image URL:</label>
+            <input type="url" id="edit-recipe-image" name="image" required>
+      
+            <label for="edit-recipe-description">Short Description:</label>
+            <input type="text" id="edit-recipe-description" name="description" required>
+      
+            <label for="edit-recipe-category">Category:</label>
+            <select id="edit-recipe-category" name="category" required>
+              <option value="" disabled selected>Select category</option>
+              <option value="Starter">Starter</option>
+              <option value="Main Course">Main Course</option>
+              <option value="Dessert">Dessert</option>
+            </select>
+      
+            <label for="edit-recipe-ingredients">Ingredients:</label>
+            <input type="text" id="edit-recipe-ingredients" name="ingredients" required>
+      
+            <label for="edit-recipe-instructions">Instructions:</label>
+            <textarea id="edit-recipe-instructions" name="instructions" rows="6" required></textarea>
+      
+            <button type="submit">Update Recipe</button>
+          </form>
+        </div>
+      </div>
+      
+
+   <div id="home-container"></div>
+  
+
+</body>
+<script src="./scripts/recipre.js"></script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    nav{
+        display: flex;
+        justify-content: space-between;
+        background-color: black;
+        height: 70px;
+    }
+    nav>a{
+        color: white;
+        text-decoration: none;
+        margin: auto;
+        font-size: larger;
+    }
+ #home-container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+ }
+ img{
+    width: 100%;
+ }
+</style>
+<body>
+    <nav>
+        <a href="./index.html">SignUp</a>
+        <a href="./signin.html">SignIn</a>
+        <a href="./home.html">Home Page</a>
+        <a href="./recipe.html">My recipe Page</a>
+    </nav>
+      
+    <form>
+        <label for="search-input">Search Recipes:</label>
+        <input type="text" id="search-input">
+        
+        <label for="filter-input">Filter by Category:</label>
+        <select id="filter-input">
+          <option value="">All</option>
+          <option value="Starter">Starter</option>
+          <option value="Main Course">Main Course</option>
+          <option value="Dessert">Dessert</option>
+        </select>
+      </form>
+   
+    <div id="buttons"></div>
+
+    <div id="home-container">
+        <!-- append data -->
+    </div>
+
+</body>
+</html>
+<script src="./scripts/home.js"></script>
