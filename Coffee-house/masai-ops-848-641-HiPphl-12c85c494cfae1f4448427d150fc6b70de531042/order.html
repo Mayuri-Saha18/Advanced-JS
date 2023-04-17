@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Page</title>
+    <style>
+      /* All Your css for Order page goes here  */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .nav {
+        height: 50px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      #order-container {
+        width: 90%;
+        height: auto;
+        margin: auto;
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .div-1 {
+        height: auto;
+        width: 100%;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+
+      .div-1 img {
+        height: 280px;
+        width: 90%;
+        display: block;
+        margin: auto;
+        margin-top: 20px;
+      }
+
+      #total {
+        text-align: center;
+      }
+
+      #cupon {
+        width: 18%;
+        margin: auto;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <h1>Web Coffee Shop Menu</h1>
+      <a href="./index.html">Home</a>
+      <a href="./order.html">Ordered</a>
+    </div>
+    <h1 id="total">
+      Your total order value is :- <span id="order-total">0</span>
+    </h1>
+    <div id="cupon">
+      <input type="text" />
+      <button id="btn-dis" onclick="getDiscount()">Add Cupon</button>
+    </div>
+    <div id="order-container">
+      <!-- Here Append All the Order Cards here-->
+    </div>
+  </body>
+  <script>
+    // All your JS code for Order Page goes here
+
+    let orderCcontainer = document.getElementById("order-container");
+    let cartFromLs = JSON.parse(localStorage.getItem("buy"));
+    let qty = 1;
+
+    const showData = () => {
+      console.log(cartFromLs);
+
+      cartFromLs.forEach((ele, ind) => {
+        let div = document.createElement("div");
+        div.setAttribute("class", "div-1");
+        let img = document.createElement("img");
+        img.src = ele.image;
+
+        let title = document.createElement("h2");
+        title.style.marginTop = "10px";
+        title.innerText = ele.title;
+        title.style.marginLeft = "15px";
+
+        let ing = document.createElement("p");
+        ing.innerText = ele.ingredients;
+        ing.style.marginTop = "10px";
+        ing.style.marginLeft = "15px";
+
+        let desc = document.createElement("p");
+        desc.innerText = ele.description;
+        desc.style.marginTop = "20px";
+        desc.style.marginLeft = "15px";
+
+        let price = document.createElement("p");
+        price.innerText = "$ " + ele.price;
+        price.style.marginTop = "20px";
+        price.style.fontWeight = "bold";
+        price.style.marginLeft = "15px";
+
+        let btnDiv = document.createElement("div");
+        btnDiv.style.display = "flex";
+        btnDiv.style.marginLeft = "15px";
+        let btnPlus = document.createElement("button");
+        btnPlus.addEventListener("click", function () {
+          getCartPlus(ele.id);
+        });
+        btnPlus.innerText = "+";
+        let value = document.createElement("p");
+        value.innerText = qty;
+        let btnMinus = document.createElement("button");
+        btnMinus.innerText = "-";
+        let delet = document.createElement("button");
+        delet.innerText = "Cancel";
+        delet.addEventListener("click", function () {
+          deleteProduct(ind);
+        });
+
+        btnDiv.append(btnPlus, value, btnMinus, delet);
+        div.append(img, title, ing, desc, price, btnDiv);
+        orderCcontainer.append(div);
+      });
+    };
+
+    function deleteProduct(id) {
+      cartFromLs.splice(id, 1);
+      localStorage.setItem("buy", JSON.stringify(cartFromLs));
+      window.location.reload();
+    }
+
+    const getCartPlus = (id) => {
+      return cartFromLs.map((ele) => {
+        if (ele.id === id) {
+          qty++;
+        }
+      });
+    };
+
+    let total = 0;
+    cartFromLs.forEach((ele) => {
+      total += ele.price;
+    });
+
+    const price = document.getElementById("order-total");
+    price.innerText = total;
+
+    const getDiscount = () => {
+      let value = document.querySelector("input").value;
+      if (value === "Masai30") {
+        let value2 = total;
+        let value3 = 30 / 100;
+        total = value2 - value2 * value3;
+      }
+      console.log(total);
+      const price = document.getElementById("order-total");
+      price.innerText = total;
+
+      document.getElementById("btn-dis").disabled = true;
+    };
+
+    showData();
+  </script>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <style>
+      /* All Your css for Home page goes here  */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .nav {
+        height: 50px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      #filter {
+        height: 50px;
+        width: 25%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+      #sort {
+        width: 10%;
+        display: block;
+        margin: auto;
+      }
+
+      #alert {
+        display: none;
+        margin-left: 20px;
+      }
+
+      #menu-container {
+        width: 90%;
+        height: auto;
+        margin: auto;
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .div-1 {
+        height: auto;
+        width: 100%;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+
+      .div-1 img {
+        height: 280px;
+        width: 90%;
+        display: block;
+        margin: auto;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="nav">
+      <h1>Web Coffee Shop Menu</h1>
+      <a href="./index.html">Home</a>
+      <a href="./order.html">Ordered</a>
+    </div>
+    <div id="filter">
+      <input type="number" id="lower" />
+      <input type="number" id="upper" />
+      <button id="filter-btn">Filter</button>
+    </div>
+    <select id="sort">
+      <option value="">Sort By Price</option>
+      <option value="asc">Ascending</option>
+      <option value="desc">Descending</option>
+    </select>
+    <h1 id="alert">Successfully Placed Order</h1>
+    <div id="menu-container">
+      <!-- Here Append All the Items  -->
+    </div>
+  </body>
+  <script>
+    // All your JS code for Home Page goes here
+    let cartFromLs = JSON.parse(localStorage.getItem("buy")) || [];
+    const menuContainer = document.getElementById("menu-container");
+    const url = `https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-coffee`;
+    const fetchData = () => {
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => showData(data.data))
+        .catch((err) => console.log(err));
+    };
+
+    const showData = (data) => {
+      console.log(data);
+      data.forEach((ele) => {
+        let div = document.createElement("div");
+        div.setAttribute("class", "div-1");
+        let img = document.createElement("img");
+        img.src = ele.image;
+
+        let title = document.createElement("h2");
+        title.style.marginTop = "10px";
+        title.innerText = ele.title;
+        title.style.marginLeft = "15px";
+
+        let ing = document.createElement("p");
+        ing.innerText = ele.ingredients;
+        ing.style.marginTop = "10px";
+        ing.style.marginLeft = "15px";
+
+        let desc = document.createElement("p");
+        desc.innerText = ele.description;
+        desc.style.marginTop = "20px";
+        desc.style.marginLeft = "15px";
+
+        let price = document.createElement("p");
+        price.innerText = "$ " + ele.price;
+        price.style.marginTop = "20px";
+        price.style.fontWeight = "bold";
+        price.style.marginLeft = "15px";
+
+        let btn = document.createElement("button");
+        btn.innerText = "Buy";
+        btn.style.display = "block";
+        btn.style.width = "20%";
+        btn.style.height = "30px";
+        btn.style.backgroundColor = "#00FFFF";
+        btn.style.border = "none";
+        btn.style.borderRadius = "3px";
+        btn.style.cursor = "pointer";
+        btn.style.color = "#fff";
+        btn.style.margin = "auto";
+        btn.style.fontWeight = "bold";
+        btn.style.marginTop = "20px";
+        btn.style.marginBottom = "20px";
+        btn.addEventListener("click", function (event) {
+          if (addToCart(ele.id == true)) {
+            let alert = document.getElementById("alert");
+            alert.style.display = "block";
+            cartFromLs.push(ele);
+            localStorage.setItem("buy", JSON.stringify(cartFromLs));
+          } else if (addToCart(ele.id === false)) {
+            let alert = document.getElementById("alert");
+            alert.innerText = "";
+            alert.innerText = "Already Placed Order";
+            alert.style.display = "block";
+          }
+        });
+
+        div.append(img, title, ing, desc, price, btn);
+        menuContainer.append(div);
+      });
+    };
+
+    fetchData();
+
+    let sort = document.getElementById("sort");
+    sort.addEventListener("change", function () {
+      menuContainer.innerHTML = "";
+      if (sort.value === "asc") {
+        fetch(
+          "https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-coffee?sort=price&order=asc"
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            showData(data.data);
+          })
+          .catch((err) => console.log(err));
+      }
+
+      if (sort.value === "desc") {
+        fetch(
+          "https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-coffee?sort=price&order=desc"
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            showData(data.data);
+          })
+          .catch((err) => console.log(err));
+      }
+    });
+
+    function addToCart(id) {
+      for (let i = 0; i < cartFromLs.length; i++) {
+        if (cartFromLs[i].id == id) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    let filterBbtn = document.getElementById("filter-btn");
+    filterBbtn.addEventListener("click", function () {
+      fetch(
+        "https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-coffee?sort=price&order=asc"
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          filterData(data.data);
+        })
+        .catch((err) => console.log(err));
+    });
+
+    const filterData = (fil) => {
+      menuContainer.innerHTML = "";
+      let value1 = document.getElementById("lower").value;
+      let value2 = document.getElementById("upper").value;
+
+      let filter = fil.filter((ele) => {
+        return ele.price > value1 && ele.price < value2;
+      });
+      if (filter.length === 0) {
+        let heading = document.createElement("h1");
+        heading.innerText = "No Data Found";
+        menuContainer.append(heading);
+      } else {
+        showData(filter);
+      }
+    };
+  </script>
+</html>
