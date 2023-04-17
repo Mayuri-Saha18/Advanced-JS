@@ -90,7 +90,7 @@ const appendData = (data) => {
   data.map((el, i) => {
     let img = document.createElement("img");
 
-    img.src = imgDataArr[i];
+    img.src = `https://cdn2.thecatapi.com/images/${el.reference_image_id}.jpg`
 
     let name = document.createElement("h1");
     name.innerText = el.name;

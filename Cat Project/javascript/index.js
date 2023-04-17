@@ -33,7 +33,7 @@ function appendData (arr) {
         let div = document.createElement("div");
 
         let image = document.createElement("img");
-        image.src = "https://cdn2.thecatapi.com/images/0XYvRd7oD.jpg";
+        image.src =`https://cdn2.thecatapi.com/images/${el.reference_image_id}.jpg`;
 
         let breed_name = document.createElement("h2");
         breed_name.innerText = el.name;
