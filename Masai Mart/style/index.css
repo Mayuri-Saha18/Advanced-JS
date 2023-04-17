@@ -1,0 +1,215 @@
+*{
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.navbar{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    padding: 1rem 0;
+    font-family: sans-serif;
+    background-color: rgb(40,116,240);
+    position: fixed;
+    width: 100vw;
+    height: 50px;
+   
+    padding: 2.4rem;
+    margin-bottom: 8rem;
+
+}
+.mart-logo{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+.name{
+    font-size: 1.2rem;
+    margin: 0 30px;
+    color: black;
+    font-weight: bold;
+}
+#masai-mart{
+    width: 50px;
+    height: 50px;
+}
+.nav-links * {
+    font-weight: bold;
+    margin: 0 1rem;
+    text-decoration: none;
+    color: black;
+}
+.nav-links a:hover{
+    color: rgb(221, 27, 13);
+    font-weight: bold;
+}
+.filter label, .sort label{
+    
+    font-weight: bold;
+    color: rgb(40,116,240);
+}
+
+/* Product Container style--------------------- */
+
+
+body {
+    background-color: whitesmoke
+  }
+  
+  #product-container {
+    
+  
+    padding: 4rem;
+    display: grid;
+    
+    grid-template-columns: repeat(4, auto);
+    justify-content: center;
+   
+    row-gap: 4rem;
+    column-gap: 3rem;
+    margin: auto;
+  }
+  
+  .product {
+    height: auto;
+    width: auto;
+    
+     
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  
+    border-radius: 10px;
+  }
+  
+
+    
+   
+    
+  
+  
+  .product-image {
+    width: 300px;
+
+
+    
+  }
+  
+  .wishlist-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  
+  .wishlist-icon:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+   color: orangered;
+  }
+  
+  .product-desc {
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 10px;
+  }
+  
+  .left-container {
+    margin-left: 15px;
+  }
+  
+  .brand {
+   
+    font-size: 0.9rem;
+    margin: 5px 0;
+    color: #0c0c0b;
+  }
+  
+  .title {
+    
+    font-weight: bold;
+    color: #030303;
+    margin: 5px 0;
+  }
+  
+  .price {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    background-color:#769fe2;
+   
+    border-radius: 10px;
+   
+    width: fit-content;
+    padding: 5px;
+  }
+  
+  #pagination-container {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: -4rem;
+    margin-bottom: 3rem;
+  }
+  .pagination-btn {
+    padding: 9px 15px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 10px;
+    border: none;
+    /* border-color: rgb(156, 70, 38); */
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .pagination-btn:hover {
+    background-color:rgb(40,116,240);
+  }
+  
+  .filter-sort-functionality {
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #filter-category,
+  #filter-sort {
+    border: none;
+    border-bottom: 1px solid #1890ff;
+    padding: 7px 10px;
+    background-color: #fcf8e8;
+    font-weight: bold;
+    margin-right: 2rem;
+  }
+  
+  @media screen and (max-width: 1200px) {
+    #product-container {
+      grid-template-rows: repeat(6, auto);
+      grid-template-columns: repeat(2, auto);
+    }
+    
+  }
+  
+  @media screen and (max-width: 768px) {
+    #product-container {
+      grid-template-rows: repeat(12, auto);
+      grid-template-columns: repeat(1, auto);
+    }
+    .name{
+        display: none;
+    }
+  
+    .filter-sort-functionality {
+      flex-direction: column;
+    }
+  }
+  
+  
