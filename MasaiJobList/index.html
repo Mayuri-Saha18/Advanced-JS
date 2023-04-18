@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masai JavaScript Mock1</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div>
+        <div id="nav">
+            <h2>CANDIDATE SEARCHING</h2>
+        </div>
+        <div id="searchdiv">
+            <div>
+                <input type="text" id="searchf" placeholder="Enter the role to be searched" onkeyup="searchFunction()">
+            </div>
+            <select name="" id="st" onchange="selectFunc()">
+                <option value="all">All Type</option>
+                <option value="Frontend">Frontend</option>
+                <option value="FullStack">FullStack</option>
+            </select>
+        </div>
+        <div id="container"></div>
+    </div>
+</body>
+</html>
+<script src="./data.js"></script>
+<script src="./index.js"></script>
