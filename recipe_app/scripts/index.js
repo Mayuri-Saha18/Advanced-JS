@@ -21,6 +21,7 @@ form.addEventListener('submit', (event) => {
     body: JSON.stringify(user),
   })
     .then(() => {
+      alert('register  successful');
       window.location.href = "signin.html"
     })
     .catch((error) => {

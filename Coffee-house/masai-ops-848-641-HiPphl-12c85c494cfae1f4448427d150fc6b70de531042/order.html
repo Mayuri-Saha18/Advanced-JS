@@ -44,7 +44,7 @@
         margin-top: 20px;
       }
 
-      #total {
+      /* #total {
         text-align: center;
       }
 
@@ -52,7 +52,7 @@
         width: 18%;
         margin: auto;
         margin-top: 10px;
-      }
+      } */
     </style>
   </head>
   <body>
@@ -113,9 +113,9 @@
         btnDiv.style.display = "flex";
         btnDiv.style.marginLeft = "15px";
         let btnPlus = document.createElement("button");
-        btnPlus.addEventListener("click", function () {
-          getCartPlus(ele.id);
-        });
+        // btnPlus.addEventListener("click", function () {
+        //   getCartPlus(ele.id);
+        // });
         btnPlus.innerText = "+";
         let value = document.createElement("p");
         value.innerText = qty;
@@ -139,13 +139,13 @@
       window.location.reload();
     }
 
-    const getCartPlus = (id) => {
-      return cartFromLs.map((ele) => {
-        if (ele.id === id) {
-          qty++;
-        }
-      });
-    };
+    // const getCartPlus = (id) => {
+    //   return cartFromLs.map((ele) => {
+    //     if (ele.id === id) {
+    //       qty++;
+    //     }
+    //   });
+    // };
 
     let total = 0;
     cartFromLs.forEach((ele) => {
